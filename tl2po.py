@@ -27,14 +27,6 @@
 # - import your game's translation started in Ren'Py format
 # - import default Ren'Py translated strings from "The Question"
 
-# Poedit (ignores very short strings):
-#   the_question.po > Preferences > TM > Manage > Import Translation Files...
-#   yourgame.po > Catalog > Pre-translate
-# gettext: https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia
-#   new:       msgmerge -C the_question.po /dev/null yourgame.pot > yourgame.po
-#   update:    msgmerge -C the_question.po --update yourgame.po yourgame.pot
-#   overwrite: msgcat --use-first -o yourgame-updated.po the_question.po yourgame.po
-#              + update
 from __future__ import print_function
 import sys, os, fnmatch
 import re

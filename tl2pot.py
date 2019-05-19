@@ -23,10 +23,6 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# PATH=~/.../renpy-7.2.2-sdk:$PATH ./i18n_renpy2pot.py ~/.../mygame/
-# msgmerge old.po game.pot > new.po
-# Or Poedit old.po > Catalog > Update from POT File > game.pot
-
 from __future__ import print_function
 import sys, os, fnmatch
 import re
