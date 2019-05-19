@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Convert .rpy translation blocks to .pot gettext template
+# Ren'Py translations parser
 
 # Copyright (C) 2019  Sylvain Beucler
 
@@ -23,14 +23,8 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# PATH=~/.../renpy-7.2.2-sdk:$PATH ./i18n_renpy2pot.py ~/.../mygame/
-# msgmerge old.po game.pot > new.po
-# Or Poedit old.po > Catalog > Update from POT File > game.pot
-
 from __future__ import print_function
-import sys, os, fnmatch
 import re
-import subprocess, shutil
 
 def is_empty(line):
     return bool(re.match(r'^\s*$', line))
@@ -79,7 +73,7 @@ def extract_dialog_string(dialog_line):
 
 def parse_next_block(lines):
     ret = []
-    block_string = {'id':None, 'source':None, 'text':None}
+    block_string = {'id':None, 'source':None, 'text':None, 'translation':None}
     while len(lines) > 0:
         line = lines.pop()
         if is_empty(line):
@@ -93,7 +87,7 @@ def parse_next_block(lines):
                 pass
             elif block_string['id'] == 'strings':
                 # basic strings block
-                string = {'id':None, 'source':None, 'text':None}
+                string = {'id':None, 'source':None, 'text':None, 'translation':None}
                 while len(lines) > 0:
                     line = lines.pop()
                     if is_empty(line):
@@ -106,8 +100,10 @@ def parse_next_block(lines):
                         string['source'] = line.lstrip().lstrip('#').strip()
                     elif line.lstrip().startswith('old '):
                         string['text'] = line.strip().lstrip('old "').rstrip('"')
+                    elif line.lstrip().startswith('new '):
+                        string['translation'] = line.strip().lstrip('new "').rstrip('"')
                         ret.append(string)
-                        string = {'id':None, 'source':None, 'text':None}
+                        string = {'id':None, 'source':None, 'text':None, 'translation':None}
                     else:
                         pass
                 break
@@ -136,48 +132,3 @@ def parse_next_block(lines):
         else:  # Unknown
             pass
     return ret
-
-def convert(projectpath):
-    # Refresh strings
-    try:
-        # Ensure Ren'Py keeps the strings order (rather than append new strings)
-        shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
-    except OSError:
-        pass
-    # TODO: renpy within renpy == sys.executable -EO sys.argv[0]
-    # cf. launcher/game/project.rpy
-    print("Calling Ren'Py translate")
-    # using --compile otherwise Ren'Py sometimes skips half of the files
-    ret = subprocess.call(['renpy.sh', projectpath, 'translate', 'pot', '--compile'])
-    if ret != 0:
-        print("Ren'Py error")
-        sys.exit(1)
-    
-    print("Generating game.pot...")
-    strings = []
-    out = open('game.pot', 'w')
-    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
-        for filename in fnmatch.filter(filenames, '*.rpy'):
-            print("Parsing  " + os.path.join(curdir,filename))
-            f = open(os.path.join(curdir,filename), 'r')
-            lines = f.readlines()
-            lines[0].lstrip('\ufeff')  # BOM
-
-            lines.reverse()
-            while len(lines) > 0:
-                strings.extend(parse_next_block(lines))
-    
-    occurrences = {}
-    for s in strings:
-        occurrences[s['text']] = occurrences.get(s['text'], 0) + 1
-
-    for s in strings:
-        if occurrences[s['text']] > 1:
-            out.write('msgctxt "' + s['id'] + '"\n')
-        out.write('#: ' + s['source'] + '\n')
-        out.write('msgid "' + s['text'] + '"\n')
-        out.write('msgstr ""\n')
-        out.write('\n')
-
-if __name__ == '__main__':
-    convert(sys.argv[1])
