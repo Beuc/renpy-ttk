@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Convert .rpy translation blocks to .po gettext catalog
+# Convert .rpy translation blocks and strings to .po gettext catalog
 
 # Copyright (C) 2019  Sylvain Beucler
 
@@ -60,8 +60,7 @@ def tl2po(projectpath, language):
     # using --compile otherwise Ren'Py sometimes skips half of the files
     ret = subprocess.call(['renpy.sh', projectpath, 'translate', 'pot', '--compile'])
     if ret != 0:
-        print("Ren'Py error")
-        sys.exit(1)
+        raise Exception("Ren'Py error")
     
     originals = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
@@ -69,7 +68,8 @@ def tl2po(projectpath, language):
             print("Parsing  " + os.path.join(curdir,filename))
             f = open(os.path.join(curdir,filename), 'r')
             lines = f.readlines()
-            lines[0].lstrip('\ufeff')  # BOM
+            if lines[0].startswith('\xef\xbb\xbf'):
+                lines[0] = lines[0][3:]  # BOM
 
             lines.reverse()
             while len(lines) > 0:
@@ -81,7 +81,8 @@ def tl2po(projectpath, language):
             print("Parsing  " + os.path.join(curdir,filename))
             f = open(os.path.join(curdir,filename), 'r')
             lines = f.readlines()
-            lines[0].lstrip('\ufeff')  # BOM
+            if lines[0].startswith('\xef\xbb\xbf'):
+                lines[0] = lines[0][3:]  # BOM
 
             lines.reverse()
             while len(lines) > 0:
@@ -110,7 +111,7 @@ msgstr ""
     for s in originals:
         out.write('#: ' + s['source'] + '\n')
         if occurrences[s['text']] > 1:
-            out.write('msgctxt "' + s['id'] + '"\n')
+            out.write('msgctxt "' + (s['id'] or s['source']) + '"\n')
         out.write('msgid "' + s['text'] + '"\n')
         if s['id'] is not None and t_blocks_index.has_key(s['id']):
             out.write('msgstr "' + t_blocks_index[s['id']] + '"\n')

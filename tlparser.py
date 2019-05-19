@@ -59,11 +59,19 @@ def extract_dqstrings(line):
             if pos >= len(line) or line[pos] != delim:
                 raise Exception("unterminated string: " + line[start:pos])
             if delim == DQ:
-                ret.append(line[start:pos])
+                ret.append({'start':start, 'end':pos, 'text': line[start:pos]})
         pos += 1
     return ret
 
 def extract_dialog_string(dialog_line):
+    res = extract_dqstrings(dialog_line)
+    if len(res) == 0:
+        return None
+    if len(res) > 1:  # (who, what)
+        return res[1]
+    return res[0]  # (what)
+
+def extract_base_string(dialog_line):
     res = extract_dqstrings(dialog_line)
     if len(res) == 0:
         return None
@@ -84,7 +92,16 @@ def parse_next_block(lines):
             block_string['id'] = line.strip(':\n').split()[2]
             if block_string['id'] in ('style', 'python'):
                 # no strings, skip
-                pass
+                while len(lines) > 0:
+                    line = lines.pop()
+                    if is_empty(line):
+                        continue
+                    elif is_comment(line):
+                        continue
+                    elif not line.startswith(' '):
+                        # end of block
+                        lines.append(line)
+                        break
             elif block_string['id'] == 'strings':
                 # basic strings block
                 string = {'id':None, 'source':None, 'text':None, 'translation':None}
@@ -92,16 +109,16 @@ def parse_next_block(lines):
                     line = lines.pop()
                     if is_empty(line):
                         pass
+                    elif is_comment(line):
+                        string['source'] = line.lstrip().lstrip('#').strip()
                     elif not line.startswith(' '):
                         # end of block
                         lines.append(line)
                         break
-                    elif is_comment(line):
-                        string['source'] = line.lstrip().lstrip('#').strip()
                     elif line.lstrip().startswith('old '):
-                        string['text'] = line.strip().lstrip('old "').rstrip('"')
+                        string['text'] = extract_base_string(line)['text']
                     elif line.lstrip().startswith('new '):
-                        string['translation'] = line.strip().lstrip('new "').rstrip('"')
+                        string['translation'] = extract_base_string(line)['text']
                         ret.append(string)
                         string = {'id':None, 'source':None, 'text':None, 'translation':None}
                     else:
@@ -112,23 +129,24 @@ def parse_next_block(lines):
                 while len(lines) > 0:
                     line = lines.pop()
                     if is_empty(line):
-                        pass
+                        continue
                     elif not line.startswith(' '):
                         # end of block
                         lines.append(line)
                         break
                     elif is_comment(line):
                         # untranslated original
-                        pass
+                        continue
                     else:
                         # dialog body
                         s = extract_dialog_string(line)
                         if s is None:
-                            pass  # not a dialog line
-                        block_string['text'] = s
+                            continue  # not a dialog line
+                        block_string['text'] = s['text']
                 ret = [block_string]
                 break
 
         else:  # Unknown
+            print("Warning: format not detected:", line)
             pass
     return ret

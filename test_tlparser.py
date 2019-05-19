@@ -24,19 +24,24 @@ class TestTlparser(unittest.TestCase):
     def test_extract_dqstrings(self):
         testcase = r'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
         self.assertEqual(tlparser.extract_dqstrings(testcase),
-            [r'''Tricky single/double '\" multiple strings 2'''])
+            [{'start': 31, 'end': 74, 'text': r'''Tricky single/double '\" multiple strings 2'''}])
         testcase = r'''_( "string \" character" ) "Tricky double/double \"' multiple strings"'''
         self.assertEqual(tlparser.extract_dqstrings(testcase),
-            [r'''string \" character''', r'''Tricky double/double \"' multiple strings'''])
+            [{'start':  4, 'end': 23, 'text': r'''string \" character'''},
+             {'start': 28, 'end': 69, 'text': r'''Tricky double/double \"' multiple strings'''}])
 
+    def test_extract_base_string(self):
+        self.assertEqual(
+            tlparser.extract_base_string('''    old "menu title"\n'''),
+            {'start': 9, 'end': 19, 'text': 'menu title'})
 
     def test_extract_dialog_string(self):
-        self.assertEqual(tlparser.extract_dialog_string(
-            '''e "You've created a new Ren'Py game."'''),
-        "You've created a new Ren'Py game.")
+        self.assertEqual(
+            tlparser.extract_dialog_string('''e "You've created a new Ren'Py game."\n'''),
+            {'start': 3, 'end': 36, 'text': "You've created a new Ren'Py game."})
         testcase = r'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
         self.assertEqual(tlparser.extract_dialog_string(testcase),
-            r'''Tricky single/double '\" multiple strings 2''')
+            {'start': 31, 'end': 74, 'text': r'''Tricky single/double '\" multiple strings 2'''})
 
     def test_parse_next_block(self):
         # https://www.renpy.org/doc/html/translation.html
@@ -80,6 +85,7 @@ translate pot start_130610c2:
 
         lines = """
 translate piglatin style default:
+# comment but not the end of the bloc
     font "stonecutter.ttf"
 """
         lines = [l+"\n" for l in lines.split("\n")]
@@ -88,6 +94,7 @@ translate piglatin style default:
 
         lines = """
 translate piglatin python:
+
     style.default.font = "stonecutter.ttf"
 """
         lines = [l+"\n" for l in lines.split("\n")]
