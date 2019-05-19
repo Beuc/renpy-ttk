@@ -28,7 +28,7 @@ import sys, os, fnmatch
 import re
 import subprocess, shutil
 import tempfile
-import tlparser
+import tlparser, tlrun
 import gettext
 
 # Doc: manual .mo test:
@@ -37,34 +37,50 @@ import gettext
 # TEXTDOMAINDIR=. gettext -s -d game "Start"
 # TEXTDOMAINDIR=. gettext -s -d game "script_abcd1234"$'\x4'"You've created a new Ren'Py game."
 
+ESCAPE_CHARS = {
+    '\a': r'\a',
+    '\b': r'\b',
+    '\e': r'\e',
+    '\f': r'\f',
+    '\n': r'\n',
+    '\r': r'\r',
+    '\t': r'\t',
+    '\v': r'\v',
+    '\\': r'\\',
+    #'\'': r'\'',
+    '\"': r'\"',
+    '\?': r'\?',
+}
+def c_escape(s):
+    '''
+    Use to convert gettext result back to Python-style string
+    Like str.encode('string_escape') but keeping non-ASCII letters as-is
+    (no \xc3\xa9 everywhere)
+    '''
+    return ''.join([ESCAPE_CHARS.get(c, c) for c in s])
+
 def mo2tl(projectpath, mofile, renpy_target_language):
     if not renpy_target_language.isalpha():
         raise Exception("Invalid language", language)
 
     # Refresh strings
+    print("Calling Ren'Py translate to get original strings")
     try:
         # Ensure Ren'Py keeps the strings order (rather than append new strings)
         shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
     except OSError:
         pass
-    # TODO: renpy within renpy == sys.executable -EO sys.argv[0]
-    # cf. launcher/game/project.rpy
-    print("Calling Ren'Py translate")
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    ret = subprocess.call(['renpy.sh', projectpath, 'translate', 'pot', '--compile'])
-    if ret != 0:
-        raise Exception("Ren'Py error")
-    ret = subprocess.call(['renpy.sh', projectpath, 'translate', renpy_target_language])
-    if ret != 0:
-        raise Exception("Ren'Py error")
+    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     originals = []
-    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',renpy_target_language)):
+    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
         for filename in fnmatch.filter(filenames, '*.rpy'):
-            print("Updating  " + os.path.join(curdir,filename))
+            print("Parsing  " + os.path.join(curdir,filename))
             f = open(os.path.join(curdir,filename), 'r')
             lines = f.readlines()
-            lines[0].lstrip('\ufeff')  # BOM
+            if lines[0].startswith('\xef\xbb\xbf'):
+                lines[0] = lines[0][3:]  # BOM
 
             lines.reverse()
             while len(lines) > 0:
@@ -77,6 +93,9 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             o_blocks_index[s['id']] = s['text']
         else:
             o_basestr_index[s['text']] = s['translation']
+
+    print("Calling Ren'Py translate to refresh " + renpy_target_language)
+    tlrun.renpy([projectpath, 'translate', renpy_target_language])
 
     localedir = tempfile.mkdtemp()
     # Setup gettext directory structure
@@ -96,6 +115,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
 
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',renpy_target_language)):
         for filename in fnmatch.filter(filenames, '*.rpy'):
+            print("Updating  " + os.path.join(curdir,filename))
             scriptpath = os.path.join(curdir,filename)
             f_in = open(scriptpath, 'r')
             lines = f_in.readlines()
@@ -109,9 +129,9 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             while len(lines) > 0:
                 line = lines.pop()
                 if tlparser.is_empty(line):
-                    continue
+                    out.write(line)
                 elif tlparser.is_comment(line):
-                    continue
+                    out.write(line)
                 elif tlparser.is_block_start(line):
                     msgid = line.strip(':\n').split()[2]
                     if msgid == 'strings':
@@ -131,13 +151,16 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 break
                             elif line.lstrip().startswith('old '):
                                 msgstr = tlparser.extract_base_string(line)['text']
+                                msgstr = msgstr.decode('string_escape')
                                 translation = gettext.dgettext('game', msgstr)
+                                translation = c_escape(translation)
                             elif line.lstrip().startswith('new '):
                                 if translation is not None:
                                     s = tlparser.extract_base_string(line)
                                     line = line[:s['start']]+translation+line[s['end']:]
                                 translation = None
                             else:
+                                # unknown
                                 pass
                             out.write(line)
                     else:
@@ -162,11 +185,16 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 elif o_blocks_index.get(msgid, None) is None:
                                     pass  # obsolete string
                                 else:
-                                    msgstr = msgid+'\x04'+o_blocks_index[msgid]
+                                    msgstr = o_blocks_index[msgid]
+                                    msgstr = msgstr.decode('string_escape')
+                                    msgstr = msgid+'\x04'+msgstr
                                     translation = gettext.dgettext('game', msgstr)
                                     if translation == msgstr:
+                                        # no match with context, try without
                                         msgstr = o_blocks_index[msgid]
+                                        msgstr = msgstr.decode('string_escape')
                                         translation = gettext.dgettext('game', msgstr)
+                                    translation = c_escape(translation)
                                     line = line[:s['start']]+translation+line[s['end']:]
                             out.write(line)
                 # Unknown

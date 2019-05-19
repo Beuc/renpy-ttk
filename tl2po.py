@@ -30,29 +30,28 @@
 from __future__ import print_function
 import sys, os, fnmatch
 import re
-import subprocess, shutil
-import tlparser
+import shutil
+import tlparser, tlrun
 
 
-def tl2po(projectpath, language):
+def tl2po(projectpath, language, outfile=None):
     if not language.isalpha():
         raise Exception("Invalid language", language)
-    if not os.path.exists(os.path.join(projectpath,'game','tl',language)):
+    if not os.path.isdir(os.path.join(projectpath,'game','tl',language)):
         raise Exception("Language not found", os.path.join(projectpath,'game','tl',language))
 
+    if outfile is None:
+        outfile = language+'.po'
+
     # Refresh strings
+    print("Calling Ren'Py translate")
     try:
         # Ensure Ren'Py keeps the strings order (rather than append new strings)
         shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
     except OSError:
         pass
-    # TODO: renpy within renpy == sys.executable -EO sys.argv[0]
-    # cf. launcher/game/project.rpy
-    print("Calling Ren'Py translate")
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    ret = subprocess.call(['renpy.sh', projectpath, 'translate', 'pot', '--compile'])
-    if ret != 0:
-        raise Exception("Ren'Py error")
+    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     originals = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
@@ -92,7 +91,7 @@ def tl2po(projectpath, language):
     for s in originals:
         occurrences[s['text']] = occurrences.get(s['text'], 0) + 1
 
-    out = open(language+'.po', 'w')
+    out = open(outfile, 'w')
     out.write(r"""msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
@@ -110,7 +109,7 @@ msgstr ""
         else:
             out.write('msgstr "' + t_basestr_index.get(s['text'],'') + '"\n')
         out.write('\n')
-    print("Wrote '"+language+".po'.")
+    print("Wrote '" + outfile + "'.")
 
 if __name__ == '__main__':
     tl2po(sys.argv[1], sys.argv[2])

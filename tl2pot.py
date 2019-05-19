@@ -26,24 +26,21 @@
 from __future__ import print_function
 import sys, os, fnmatch
 import re
-import subprocess, shutil
-import tlparser
+import shutil
+import tlparser, tlrun
 
-def tl2pot(projectpath):
+def tl2pot(projectpath, outfile='game.pot'):
     # Refresh strings
     try:
         # Ensure Ren'Py keeps the strings order (rather than append new strings)
         shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
     except OSError:
         pass
-    # TODO: renpy within renpy == sys.executable -EO sys.argv[0]
-    # cf. launcher/game/project.rpy
+
     print("Calling Ren'Py translate")
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    ret = subprocess.call(['renpy.sh', projectpath, 'translate', 'pot', '--compile'])
-    if ret != 0:
-        raise Exception("Ren'Py error")
-    
+    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
+
     strings = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
         for filename in fnmatch.filter(filenames, '*.rpy'):
@@ -61,7 +58,7 @@ def tl2pot(projectpath):
     for s in strings:
         occurrences[s['text']] = occurrences.get(s['text'], 0) + 1
 
-    out = open('game.pot', 'w')
+    out = open(outfile, 'w')
     out.write(r"""msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
@@ -76,7 +73,7 @@ msgstr ""
         out.write('msgid "' + s['text'] + '"\n')
         out.write('msgstr ""\n')
         out.write('\n')
-    print("Wrote 'game.pot'.")
+    print("Wrote '" + outfile + "'.")
 
 if __name__ == '__main__':
     tl2pot(sys.argv[1])

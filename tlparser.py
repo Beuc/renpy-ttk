@@ -39,7 +39,11 @@ def extract_source(comment_line):
     return comment_line.lstrip('#').strip()
 
 def extract_dqstrings(line):
-    '''Extract double-quoted strings from line'''
+    '''
+    Extract double-quoted strings from line, with their position.
+    Ren'Py dialog lines are also double-quoted in translate blocks,
+    but there may be other double- and single-quoted strings around.
+    '''
     def skip_to_delim(pos, delim):
         while pos < len(line) and line[pos] != delim:
             if line[pos] == '\\':
