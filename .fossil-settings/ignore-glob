@@ -1,0 +1,17 @@
+*.rpyb
+*.rpyc
+*.rpymc
+*.bak
+*.pyc
+*.pyo
+game/saves/*
+dialogue.txt
+errors.txt
+files.txt
+log.txt
+traceback.txt
+project.json
+*~
+*.pot
+*.po
+*.mo
