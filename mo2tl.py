@@ -60,8 +60,8 @@ def c_escape(s):
     return ''.join([ESCAPE_CHARS.get(c, c) for c in s])
 
 def mo2tl(projectpath, mofile, renpy_target_language):
-    if not re.match('^[a-z_]+$', language):
-        raise Exception("Invalid language", language)
+    if not re.match('^[a-z_]+$', renpy_target_language):
+        raise Exception("Invalid language", renpy_target_language)
 
     # Refresh strings
     print("Calling Ren'Py translate to get original strings")
@@ -141,21 +141,28 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                         out.write(line)
                         s = None
                         translation = ''
+                        msgctxt = ''
                         while len(lines) > 0:
                             line = lines.pop()
                             if tlparser.is_empty(line):
                                 pass
                             elif tlparser.is_comment(line):
-                                pass
+                                msgctxt = line.lstrip().lstrip('#').strip()
                             elif not line.startswith(' '):
                                 # end of block
                                 lines.append(line)
                                 break
                             elif line.lstrip().startswith('old '):
                                 msgstr = tlparser.extract_base_string(line)['text']
-                                msgstr = msgstr.decode('string_escape')
-                                translation = gettext.dgettext('game', msgstr)
+                                lookup = msgstr.decode('string_escape')
+                                lookup = msgctxt+'\x04'+lookup
+                                translation = gettext.dgettext('game', lookup)
+                                if translation == lookup:
+                                        # no match with context, try without
+                                        lookup = msgstr.decode('string_escape')
+                                        translation = gettext.dgettext('game', lookup)
                                 translation = c_escape(translation)
+                                msgctxt = ''
                             elif line.lstrip().startswith('new '):
                                 if translation is not None:
                                     s = tlparser.extract_base_string(line)
@@ -188,14 +195,14 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                     pass  # obsolete string
                                 else:
                                     msgstr = o_blocks_index[msgid]
-                                    msgstr = msgstr.decode('string_escape')
-                                    msgstr = msgid+'\x04'+msgstr
-                                    translation = gettext.dgettext('game', msgstr)
-                                    if translation == msgstr:
+                                    msgctxt = msgid
+                                    lookup = msgstr.decode('string_escape')
+                                    lookup = msgctxt+'\x04'+lookup
+                                    translation = gettext.dgettext('game', lookup)
+                                    if translation == lookup:
                                         # no match with context, try without
-                                        msgstr = o_blocks_index[msgid]
-                                        msgstr = msgstr.decode('string_escape')
-                                        translation = gettext.dgettext('game', msgstr)
+                                        lookup = msgstr.decode('string_escape')
+                                        translation = gettext.dgettext('game', lookup)
                                     translation = c_escape(translation)
                                     line = line[:s['start']]+translation+line[s['end']:]
                             out.write(line)
