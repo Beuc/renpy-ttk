@@ -28,7 +28,7 @@
 # - import default Ren'Py translated strings from "The Question"
 
 from __future__ import print_function
-import sys, os, fnmatch
+import sys, os, fnmatch, operator
 import re
 import shutil
 import tlparser, tlrun
@@ -44,7 +44,7 @@ def tl2po(projectpath, language, outfile=None):
         outfile = language+'.po'
 
     # Refresh strings
-    print("Calling Ren'Py translate")
+    print("Calling Ren'Py translate to get latest strings")
     try:
         # Ensure Ren'Py keeps the strings order (rather than append new strings)
         shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
@@ -54,8 +54,8 @@ def tl2po(projectpath, language, outfile=None):
     tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     originals = []
-    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
-        for filename in fnmatch.filter(filenames, '*.rpy'):
+    for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
+        for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
             print("Parsing  " + os.path.join(curdir,filename))
             f = open(os.path.join(curdir,filename), 'r')
             lines = f.readlines()
