@@ -2,7 +2,7 @@
 
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
-## Features
+## Features / benefits
 
 Work on your Ren'Py translation using the PO format. This brings support for iterative translation:
 
@@ -21,15 +21,28 @@ Up-to-date source references (file:line).
 Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# rttk:ignore` comment in the `translate` block before your translations.
 
 
-## Using with your PO editor
+## Running from Ren'Py (GUI)
+
+Copy this directory along with your other Ren'Py games, so it shows up
+in the Ren'Py Launcher.  Then run `renpy-ttk` like any game.
+
+
+## Running on the command line
+
+Add `renpy.sh` to your PATH:
+
+`PATH=~/.../renpy-7.2.2-sdk:$PATH ./tl2pot.py ~/.../mygame/`
+
+
+## Workflow with your PO editor
 
 ### Create a new .po translation file
 
-Run tl2pot.py and open the .pot template file.
+Run `tl2pot` and open the .pot template file.
 
 ### Update an existing .po translation file
 
-Run tl2pot.py again and merge the new template .pot file.
+Run `tl2pot` again and merge the new template .pot file.
 
 With gettext: `msgmerge old.po game.pot > new.po`
 
@@ -37,11 +50,11 @@ With Poedit: old.po > Catalog > Update from POT File > game.pot
 
 ### Convert an existing Ren'Py translation to .po
 
-Run tl2po.py and open the .po translation file.
+Run `tl2po` and open the .po translation file.
 
 ### Import translations for default texts
 
-Run tl2po.py on "The Question" and import the .po translation file.
+Run `tl2po` on "The Question" and import the .po translation file.
 
 With gettext - use a [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
 
@@ -60,15 +73,9 @@ With Poedit (ignores very short strings):
 
 ### Push your translation back to Ren'Py
 
-Compile your .po to .mo, and run mo2tl.py.  This will update the translations in your `tl/*.rpy` files.
+Compile your .po to .mo, and run `mo2tl`.  This will update the translations in your `tl/*.rpy` files.
 
 Note: mot2tl.py can compile to .mo for you if `msgfmt` is in the PATH. 
-
-## Running on the command line
-
-Add `renpy.sh` to your PATH:
-
-`PATH=~/.../renpy-7.2.2-sdk:$PATH ./tl2pot.py ~/.../mygame/`
 
 
 ## Caveats
