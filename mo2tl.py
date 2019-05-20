@@ -64,7 +64,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
         raise Exception("Invalid language", renpy_target_language)
 
     # Refresh strings
-    print("Calling Ren'Py translate to get original strings")
+    print("Calling Ren'Py translate to get untranslated strings")
     try:
         # Ensure Ren'Py keeps the strings order (rather than append new strings)
         shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
@@ -73,6 +73,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
     # using --compile otherwise Ren'Py sometimes skips half of the files
     tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
     
+    # Prepare msgid:untranslated_string index
     originals = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
         for filename in fnmatch.filter(filenames, '*.rpy'):
@@ -97,8 +98,8 @@ def mo2tl(projectpath, mofile, renpy_target_language):
     print("Calling Ren'Py translate to refresh " + renpy_target_language)
     tlrun.renpy([projectpath, 'translate', renpy_target_language])
 
-    localedir = tempfile.mkdtemp()
     # Setup gettext directory structure
+    localedir = tempfile.mkdtemp()
     if not os.environ.has_key('LANG'):
         os.environ['LANG'] = 'en_US.UTF-8'
     msgdir = os.path.join(localedir,
