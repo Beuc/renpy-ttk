@@ -111,5 +111,11 @@ msgstr ""
         out.write('\n')
     print("Wrote '" + outfile + "'.")
 
+    try:
+        # Clean-up
+        shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
+    except OSError:
+        pass
+
 if __name__ == '__main__':
     tl2po(sys.argv[1], sys.argv[2])

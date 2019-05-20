@@ -212,5 +212,11 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                     out.write(line)
     shutil.rmtree(localedir)
 
+    try:
+        # Clean-up
+        shutil.rmtree(os.path.join(projectpath,'game','tl','pot'))
+    except OSError:
+        pass
+
 if __name__ == '__main__':
     mo2tl(sys.argv[1], sys.argv[2], sys.argv[3])
