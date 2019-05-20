@@ -60,7 +60,7 @@ def c_escape(s):
     return ''.join([ESCAPE_CHARS.get(c, c) for c in s])
 
 def mo2tl(projectpath, mofile, renpy_target_language):
-    if not renpy_target_language.isalpha():
+    if not re.match('^[a-z_]+$', language):
         raise Exception("Invalid language", language)
 
     # Refresh strings

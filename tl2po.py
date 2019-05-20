@@ -35,7 +35,7 @@ import tlparser, tlrun
 
 
 def tl2po(projectpath, language, outfile=None):
-    if not language.isalpha():
+    if not re.match('^[a-z_]+$', language):
         raise Exception("Invalid language", language)
     if not os.path.isdir(os.path.join(projectpath,'game','tl',language)):
         raise Exception("Language not found", os.path.join(projectpath,'game','tl',language))
