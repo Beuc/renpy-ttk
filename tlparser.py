@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Ren'Py translations parser
+# Ren'Py translate blocks parser
 
 # Copyright (C) 2019  Sylvain Beucler
 

@@ -73,7 +73,9 @@ Add `renpy.sh` to your PATH:
 
 ## Caveats
 
-Do not import Ren'Py translations again once you've updated it from a
-.po. This is because RTTK replaces untranslated strings with the
-originals (so the player won't get empty texts), hence a double import
-will import original texts as translations.
+Do not import Ren'Py existing translations again (tl2po) once you've
+updated it from a .po. This is because RTTK replaces untranslated
+strings with the originals (so the player won't get empty texts),
+hence a double import will import original texts as translations.  Of
+course you can still import new untranslated strings as a POT template
+(tl2pot).

@@ -114,8 +114,8 @@ screen main_menu():
         vbox:
             null height 10
             textbutton "Generate POT template (tl2pot)" action TL2POT()
-            textbutton "Convert Ren'Py translations to PO catalog (tl2po)" action TL2PO()
-            textbutton "Update Ren'Py translation from MO catalog (mo2tl)" action MO2TL()
+            textbutton "Convert existing Ren'Py translations to PO catalog (tl2po)" action TL2PO()
+            textbutton "Update Ren'Py translations from MO catalog (mo2tl)" action MO2TL()
             null height 20
             text "Set language:":
                 color "#000000"
