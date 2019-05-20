@@ -2,6 +2,7 @@
 
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
+
 ## Features / benefits
 
 Work on your Ren'Py translation using the PO format. This brings support for iterative translation:
@@ -18,18 +19,26 @@ Handle duplicates, so you can translate the same dialog line differently dependi
 
 Up-to-date source references (file:line).
 
-Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# rttk:ignore` comment in the `translate` block before your translations.
+Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# renpy-ttk:ignore` comment in the `translate` block before your translations.
 
 
-## Running from Ren'Py (GUI)
+## Install and run
 
-Copy this directory along with your other Ren'Py games, so it shows up
-in the Ren'Py Launcher.  Then run `renpy-ttk` like any game.
+### From Ren'Py (GUI)
+
+Place this directory along with your other Ren'Py games, so it shows
+up in the Ren'Py Launcher.
+
+Generate your game's translations once using the Ren'Py launcher.
+
+Then run `renpy-ttk` like a game: you'll be able to select the project
+to translate, the language, and run the various conversions with a
+single click.
 
 
-## Running on the command line
+## Command line
 
-Add `renpy.sh` to your PATH:
+Add `renpy.sh` to your `PATH`:
 
 `PATH=~/.../renpy-7.2.2-sdk:$PATH ./tl2pot.py ~/.../mygame/`
 
@@ -38,25 +47,25 @@ Add `renpy.sh` to your PATH:
 
 ### Create a new .po translation file
 
-Run `tl2pot` and open the .pot template file.
+Run `tl2pot` and open the `.pot` template file.
 
-### Update an existing .po translation file
+### Update an existing `.po` translation file
 
-Run `tl2pot` again and merge the new template .pot file.
+Run `tl2pot` again and merge the new template `.pot` file.
 
 With gettext: `msgmerge old.po game.pot > new.po`
 
-With Poedit: old.po > Catalog > Update from POT File > game.pot
+With Poedit: open old.po > Catalog > Update from POT File > game.pot
 
-### Convert an existing Ren'Py translation to .po
+### Convert an existing Ren'Py translation to `.po`
 
-Run `tl2po` and open the .po translation file.
+Run `tl2po` and open the `.po` translation file.
 
 ### Import translations for default texts
 
-Run `tl2po` on "The Question" and import the .po translation file.
+Run `tl2po` on "The Question" and import the `.po` translation file.
 
-With gettext - use a [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
+With gettext - use it as [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
 
 - new:       `msgmerge -C the_question.po /dev/null yourgame.pot > yourgame.po`
 
@@ -64,7 +73,7 @@ With gettext - use a [compendium](https://www.gnu.org/software/gettext/manual/ht
 
 - overwrite: `msgcat --use-first -o yourgame-updated.po the_question.po yourgame.po # + update as above`
 
-With Poedit (ignores very short strings):
+With Poedit (ignores very short strings) - use it for Translation Memory:
 
 - Open `the_question.po`
 - Preferences > TM > Manage > Import Translation Files...
@@ -73,16 +82,16 @@ With Poedit (ignores very short strings):
 
 ### Push your translation back to Ren'Py
 
-Compile your .po to .mo, and run `mo2tl`.  This will update the translations in your `tl/*.rpy` files.
+Compile your `.po` to `.mo`, and run `mo2tl`.  This will inject the translations in your `tl/*.rpy` files.
 
-Note: mot2tl.py can compile to .mo for you if `msgfmt` is in the PATH. 
+Note: `mot2tl` can compile to `.mo` for you if `msgfmt` is in the PATH. 
 
 
 ## Caveats
 
-Do not import Ren'Py existing translations again (tl2po) once you've
-updated it from a .po. This is because RTTK replaces untranslated
-strings with the originals (so the player won't get empty texts),
-hence a double import will import original texts as translations.  Of
-course you can still import new untranslated strings as a POT template
-(tl2pot).
+Do not import Ren'Py existing translations again (`tl2po`) once you've
+updated it from a `.po`. This is because renpy-ttk replaces
+untranslated strings with the originals (so the player won't get empty
+texts), hence a double import will import original texts as
+translations.  Of course you can still import new untranslated strings
+as a POT template (`tl2pot`).
