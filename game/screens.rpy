@@ -34,16 +34,16 @@
 
     class TL2PO(Action):
         def __call__(self):
-            if store.projectpath:
+            if store.projectpath and store.language:
                 import tl2po
                 tl2po.tl2po(store.projectpath,
                     store.language,
-                    os.path.join(outdir, os.path.basename(store.projectpath) + '-' + language + '.po'))
+                    os.path.join(outdir, os.path.basename(store.projectpath) + '-' + store.language + '.po'))
                 open_directory(outdir)
 
     class MO2TL(Action):
         def __call__(self):
-            if store.projectpath:
+            if store.projectpath and store.language:
                 mofile = choose_file(outdir)
                 if mofile:
                     import mo2tl
@@ -91,7 +91,7 @@
     INDENT = 20
 
 define projectpath = None
-define language = "None"
+define language = None
 
 # Recover from Python exception on "Ignore"
 label start:
@@ -109,13 +109,13 @@ screen main_menu():
             text _("PROJECTS:") style "l_label_text" size 36 yoffset 10
             null height 20
             for p in projects_list():
-                textbutton os.path.basename(p) action SetVariable('projectpath',p)
+                textbutton os.path.basename(p) action SetVariable('projectpath',p),SetVariable('language',None)
         null width 20
         vbox:
             null height 10
             textbutton "Generate POT template (tl2pot)" action TL2POT()
             textbutton "Convert Ren'Py translations to PO catalog (tl2po)" action TL2PO()
-            textbutton "Update Ren'Py translation with MO catalog (mo2tl)" action MO2TL()
+            textbutton "Update Ren'Py translation from MO catalog (mo2tl)" action MO2TL()
             null height 20
             text "Set language:":
                 color "#000000"
