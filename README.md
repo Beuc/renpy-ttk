@@ -14,9 +14,9 @@ Work on your Ren'Py translation using the PO format. This brings support for ite
 
 - Ren'Py forces you to either: display empty texts when there's no translation yet; or prefill all translations using the original language but this makes it hard to see untranslated strings. Now you can have both, as untranslated strings will be empty in your .po but filled with the original language in the Ren'Py translation files.
 
+Handle duplicates, so you can translate the same dialog line differently depending on the context.  Only duplicates get an additional context marker, so as to avoid tons of fuzzy texts when e.g. you renamed a Ren'Py label.
 
-Handle duplicates, so you can translate the same text differently depending on the context.  Only duplicates get an additional context marker, so as to avoid tons of fuzzy texts when e.g. you renamed a Ren'Py label.
-
+Up-to-date source references (file:line).
 
 Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# rttk:ignore` comment in the `translate` block before your translations.
 
