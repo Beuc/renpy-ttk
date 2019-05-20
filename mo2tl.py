@@ -99,8 +99,10 @@ def mo2tl(projectpath, mofile, renpy_target_language):
 
     localedir = tempfile.mkdtemp()
     # Setup gettext directory structure
+    if not os.environ.has_key('LANG'):
+        os.environ['LANG'] = 'en_US.UTF-8'
     msgdir = os.path.join(localedir,
-                          os.environ.get('LANG', 'en_US.UTF-8'),
+                          os.environ['LANG'],
                           'LC_MESSAGES')
     os.makedirs(msgdir)
     if mofile.endswith('.po'):
