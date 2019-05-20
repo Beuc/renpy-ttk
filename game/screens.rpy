@@ -60,8 +60,8 @@
     def projects_list():
         import glob
         dirs = (
-            glob.glob(os.path.join(projects_directory(),'*')) +
-            glob.glob(os.path.join(config.renpy_base,'*'))
+            sorted(glob.glob(os.path.join(projects_directory(),'*'))) +
+            sorted(glob.glob(os.path.join(config.renpy_base,'*')))
         )
         return [d for d in dirs if os.path.isdir(os.path.join(d,'game'))]
 
@@ -69,7 +69,7 @@
         if store.projectpath is None:
             return []
         dirs = glob.glob(os.path.join(projectpath,'game','tl','*'))
-        return [os.path.basename(d) for d in dirs if os.path.isdir(d)]
+        return [os.path.basename(d) for d in sorted(dirs) if os.path.isdir(d)]
 
     # The color of non-interactive text.
     TEXT = "#545454"
