@@ -4,7 +4,7 @@ Tools for translators working on Ren'Py games, in particular PO format import/ex
 
 ## Features
 
-Work on your Ren'Py translation using the PO format. This brings support for iterative translations:
+Work on your Ren'Py translation using the PO format. This brings support for iterative translation:
 
 - Translatable strings are kept in the same order as in the Ren'Py scripts, to give you context, even after an update.  Source file information is maintained, so you can can sort with other criteria in your PO editor if needed.
 
@@ -18,7 +18,7 @@ Work on your Ren'Py translation using the PO format. This brings support for ite
 Handle duplicates, so you can translate the same text differently depending on the context.  Only duplicates get an additional context marker, so as to avoid tons of fuzzy texts when e.g. you renamed a Ren'Py label.
 
 
-Support customized Ren'Py translations: for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, just leave the translation empty in the .po and RTTK will keep it.
+Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# rttk:ignore` comment in the `translate` block before your translations.
 
 
 ## Using with your PO editor
