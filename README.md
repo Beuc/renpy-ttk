@@ -45,15 +45,15 @@ Add `renpy.sh` to your `PATH`:
 
 ## Workflow with your PO editor
 
-### Create a new .po translation file
+### Create a new `.po` translation file from `.pot` template
 
-Run `tl2pot` and open the `.pot` template file.
+Run `tl2pot`, open the `.pot` template file with your PO editor and follow its instructions.
 
 ### Update an existing `.po` translation file
 
 Run `tl2pot` again and merge the new template `.pot` file.
 
-With gettext: `msgmerge old.po game.pot > new.po`
+With gettext: `msgmerge yourgame-lang.po yourgame.pot > yourlang-lang-updated.po`
 
 With Poedit: open old.po > Catalog > Update from POT File > game.pot
 
@@ -65,27 +65,35 @@ Run `tl2po` and open the `.po` translation file.
 
 Run `tl2po` on "The Question" and import the `.po` translation file.
 
-With gettext - use it as [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
+With gettext: use it as [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
 
-- new:       `msgmerge -C the_question.po /dev/null yourgame.pot > yourgame.po`
+- new:       `msgmerge -C the_question.po /dev/null yourgame.pot > yourgame-lang.po`
 
-- update:    `msgmerge -C the_question.po --update yourgame.po yourgame.pot`
+- update:    `msgmerge -C the_question.po --update yourgame-lang.po yourgame.pot`
 
-- overwrite: `msgcat --use-first -o yourgame-updated.po the_question.po yourgame.po # + update as above`
+- overwrite: `msgcat --use-first -o yourgame-lang-updated.po the_question.po yourgame-lang.po # + update as above`
 
-With Poedit (ignores very short strings) - use it for Translation Memory:
+With Poedit: use it for Translation Memory:
 
 - Open `the_question.po`
 - Preferences > TM > Manage > Import Translation Files...
 - Open `yourgame.po`
 - Catalog > Pre-translate
 
+Note: Poedit ignores very short strings.
+
 ### Push your translation back to Ren'Py
 
-Compile your `.po` to `.mo`, and run `mo2tl`.  This will inject the translations in your `tl/*.rpy` files.
+Compile your `.po` to `.mo`.
 
-Note: `mot2tl` can compile to `.mo` for you if `msgfmt` is in the PATH. 
+With gettext: `msgfmt yourgame-lang.po -o yourgame-lang.mo`
 
+With Poedit: done automatically on saving, or File > Compile to MO...
+
+Run `mo2tl`. This will inject the translations in your `tl/*.rpy` files. Be sure to select the right language.
+
+Note: `mot2tl` can compile to `.mo` for you if `msgfmt` is in the
+`PATH` (i.e. under GNU/Linux).
 
 ## Caveats
 
