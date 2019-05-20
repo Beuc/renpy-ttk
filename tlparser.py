@@ -147,7 +147,8 @@ def parse_next_block(lines):
                         if s is None:
                             continue  # not a dialog line
                         block_string['text'] = s['text']
-                ret = [block_string]
+                if block_string['text'] is not None:
+                    ret = [block_string]
                 break
 
         else:  # Unknown

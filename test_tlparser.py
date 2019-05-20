@@ -84,6 +84,16 @@ translate pot start_130610c2:
         }])
 
         lines = """
+translate russian tutorial_nvlmode_76b2fe88:
+
+    # nvl clear
+    nvl clear
+"""
+        lines = [l+"\n" for l in lines.split("\n")]
+        lines.reverse()
+        self.assertEqual(tlparser.parse_next_block(lines), [])
+
+        lines = """
 translate piglatin style default:
 # comment but not the end of the bloc
     font "stonecutter.ttf"
