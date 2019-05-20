@@ -82,7 +82,7 @@ With Poedit: use it for Translation Memory:
 
 Note: Poedit ignores very short strings.
 
-### Push your translation back to Ren'Py
+### Push your translations back to Ren'Py
 
 Compile your `.po` to `.mo`.
 
@@ -95,6 +95,7 @@ Run `mo2tl`. This will inject the translations in your `tl/*.rpy` files. Be sure
 Note: `mot2tl` can compile to `.mo` for you if `msgfmt` is in the
 `PATH` (i.e. under GNU/Linux).
 
+
 ## Caveats
 
 Do not import Ren'Py existing translations again (`tl2po`) once you've
@@ -103,3 +104,10 @@ untranslated strings with the originals (so the player won't get empty
 texts), hence a double import will import original texts as
 translations.  Of course you can still import new untranslated strings
 as a POT template (`tl2pot`).
+
+Don't remove the `.rpyc` files from the `tl/language` directories once
+you release a version of your game.  Otherwise your players will lose
+their seen texts on the next update, which is a frustrating gaming
+experience.  This is not specific to renpy-ttk but it's easier to
+forget about it.  Just leave them around and let Ren'Py update
+("recompile") them.
