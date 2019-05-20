@@ -1,0 +1,1505 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: 00accessibility.rpy:76
+msgid "Font Override"
+msgstr ""
+
+#: 00accessibility.rpy:80
+msgid "Default"
+msgstr ""
+
+#: 00accessibility.rpy:84
+msgid "DejaVu Sans"
+msgstr ""
+
+#: 00accessibility.rpy:88
+msgid "Opendyslexic"
+msgstr ""
+
+#: 00accessibility.rpy:94
+msgid "Text Size Scaling"
+msgstr ""
+
+#: 00accessibility.rpy:100
+msgid "Reset"
+msgstr ""
+
+#: 00accessibility.rpy:105
+msgid "Line Spacing Scaling"
+msgstr ""
+
+#: 00accessibility.rpy:117
+msgid "Self-Voicing"
+msgstr ""
+
+#: 00accessibility.rpy:121
+msgid "Off"
+msgstr ""
+
+#: 00accessibility.rpy:125
+msgid "Text-to-speech"
+msgstr ""
+
+#: 00accessibility.rpy:129
+msgid "Clipboard"
+msgstr ""
+
+#: 00accessibility.rpy:133
+msgid "Debug"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Monday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Tuesday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Wednesday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Thursday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Friday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Saturday"
+msgstr ""
+
+#: 00action_file.rpy:26
+msgid "{#weekday}Sunday"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Mon"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Tue"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Wed"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Thu"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Fri"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Sat"
+msgstr ""
+
+#: 00action_file.rpy:37
+msgid "{#weekday_short}Sun"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}January"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}February"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}March"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}April"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}May"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}June"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}July"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}August"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}September"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}October"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}November"
+msgstr ""
+
+#: 00action_file.rpy:47
+msgid "{#month}December"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Jan"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Feb"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Mar"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Apr"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}May"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Jun"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Jul"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Aug"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Sep"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Oct"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Nov"
+msgstr ""
+
+#: 00action_file.rpy:63
+msgid "{#month_short}Dec"
+msgstr ""
+
+#: 00action_file.rpy:240
+msgid "%b %d, %H:%M"
+msgstr ""
+
+#: 00action_file.rpy:353
+msgid "Save slot %s: [text]"
+msgstr ""
+
+#: 00action_file.rpy:434
+msgid "Load slot %s: [text]"
+msgstr ""
+
+#: 00action_file.rpy:487
+msgid "Delete slot [text]"
+msgstr ""
+
+#: 00action_file.rpy:569
+msgid "File page auto"
+msgstr ""
+
+#: 00action_file.rpy:571
+msgid "File page quick"
+msgstr ""
+
+#: 00action_file.rpy:573
+msgid "File page [text]"
+msgstr ""
+
+#: 00action_file.rpy:772
+msgid "Next file page."
+msgstr ""
+
+#: 00action_file.rpy:845
+msgid "Previous file page."
+msgstr ""
+
+#: 00action_file.rpy:906
+msgid "Quick save complete."
+msgstr ""
+
+#: 00action_file.rpy:924
+msgid "Quick save."
+msgstr ""
+
+#: 00action_file.rpy:943
+msgid "Quick load."
+msgstr ""
+
+#: 00action_other.rpy:355
+msgid "Language [text]"
+msgstr ""
+
+#: 00director.rpy:708
+msgid "The interactive director is not enabled here."
+msgstr ""
+
+#: 00director.rpy:1481
+msgid "⬆"
+msgstr ""
+
+#: 00director.rpy:1487
+msgid "⬇"
+msgstr ""
+
+#: 00director.rpy:1551
+msgid "Done"
+msgstr ""
+
+#: 00director.rpy:1561
+msgid "(statement)"
+msgstr ""
+
+#: 00director.rpy:1562
+msgid "(tag)"
+msgstr ""
+
+#: 00director.rpy:1563
+msgid "(attributes)"
+msgstr ""
+
+#: 00director.rpy:1564
+msgid "(transform)"
+msgstr ""
+
+#: 00director.rpy:1589
+msgid "(transition)"
+msgstr ""
+
+#: 00director.rpy:1601
+msgid "(channel)"
+msgstr ""
+
+#: 00director.rpy:1602
+msgid "(filename)"
+msgstr ""
+
+#: 00director.rpy:1631
+msgid "Change"
+msgstr ""
+
+#: 00director.rpy:1633
+msgid "Add"
+msgstr ""
+
+#: 00director.rpy:1636
+msgid "Cancel"
+msgstr ""
+
+#: 00director.rpy:1639
+msgid "Remove"
+msgstr ""
+
+#: 00director.rpy:1674
+msgid "Statement:"
+msgstr ""
+
+#: 00director.rpy:1695
+msgid "Tag:"
+msgstr ""
+
+#: 00director.rpy:1711
+msgid "Attributes:"
+msgstr ""
+
+#: 00director.rpy:1729
+msgid "Transforms:"
+msgstr ""
+
+#: 00director.rpy:1748
+msgid "Behind:"
+msgstr ""
+
+#: 00director.rpy:1767
+msgid "Transition:"
+msgstr ""
+
+#: 00director.rpy:1785
+msgid "Channel:"
+msgstr ""
+
+#: 00director.rpy:1803
+msgid "Audio Filename:"
+msgstr ""
+
+#: 00gui.rpy:371
+msgid "Are you sure?"
+msgstr ""
+
+#: 00gui.rpy:372
+msgid "Are you sure you want to delete this save?"
+msgstr ""
+
+#: 00gui.rpy:373
+msgid "Are you sure you want to overwrite your save?"
+msgstr ""
+
+#: 00gui.rpy:374
+msgid ""
+"Loading will lose unsaved progress.\n"
+"Are you sure you want to do this?"
+msgstr ""
+
+#: 00gui.rpy:375
+msgid "Are you sure you want to quit?"
+msgstr ""
+
+#: 00gui.rpy:376
+msgid ""
+"Are you sure you want to return to the main menu?\n"
+"This will lose unsaved progress."
+msgstr ""
+
+#: 00gui.rpy:377
+msgid "Are you sure you want to end the replay?"
+msgstr ""
+
+#: 00gui.rpy:378
+msgid "Are you sure you want to begin skipping?"
+msgstr ""
+
+#: 00gui.rpy:379
+msgid "Are you sure you want to skip to the next choice?"
+msgstr ""
+
+#: 00gui.rpy:380
+msgid "Are you sure you want to skip unseen dialogue to the next choice?"
+msgstr ""
+
+#: 00keymap.rpy:261
+msgid "Failed to save screenshot as %s."
+msgstr ""
+
+#: 00keymap.rpy:273
+msgid "Saved screenshot as %s."
+msgstr ""
+
+#: 00library.rpy:175
+msgid "Self-voicing disabled."
+msgstr ""
+
+#: 00library.rpy:176
+msgid "Clipboard voicing enabled. "
+msgstr ""
+
+#: 00library.rpy:177
+msgid "Self-voicing enabled. "
+msgstr ""
+
+#: 00library.rpy:179
+msgid "bar"
+msgstr ""
+
+#: 00library.rpy:180
+msgid "selected"
+msgstr ""
+
+#: 00library.rpy:181
+msgid "viewport"
+msgstr ""
+
+#: 00library.rpy:182
+msgid "horizontal scroll"
+msgstr ""
+
+#: 00library.rpy:183
+msgid "vertical scroll"
+msgstr ""
+
+#: 00library.rpy:184
+msgid "activate"
+msgstr ""
+
+#: 00library.rpy:185
+msgid "deactivate"
+msgstr ""
+
+#: 00library.rpy:186
+msgid "increase"
+msgstr ""
+
+#: 00library.rpy:187
+msgid "decrease"
+msgstr ""
+
+#: 00library.rpy:222
+msgid "Skip Mode"
+msgstr ""
+
+#: 00library.rpy:308
+msgid ""
+"This program contains free software under a number of licenses, including "
+"the MIT License and GNU Lesser General Public License. A complete list of "
+"software, including links to full source code, can be found {a=https://www."
+"renpy.org/l/license}here{/a}."
+msgstr ""
+
+#: 00preferences.rpy:233
+msgid "display"
+msgstr ""
+
+#: 00preferences.rpy:245
+msgid "transitions"
+msgstr ""
+
+#: 00preferences.rpy:254
+msgid "skip transitions"
+msgstr ""
+
+#: 00preferences.rpy:256
+msgid "video sprites"
+msgstr ""
+
+#: 00preferences.rpy:265
+msgid "show empty window"
+msgstr ""
+
+#: 00preferences.rpy:274
+msgid "text speed"
+msgstr ""
+
+#: 00preferences.rpy:282
+msgid "joystick"
+msgstr ""
+
+#: 00preferences.rpy:282
+msgid "joystick..."
+msgstr ""
+
+#: 00preferences.rpy:289
+msgid "skip"
+msgstr ""
+
+#: 00preferences.rpy:292
+msgid "skip unseen [text]"
+msgstr ""
+
+#: 00preferences.rpy:297
+msgid "skip unseen text"
+msgstr ""
+
+#: 00preferences.rpy:299
+msgid "begin skipping"
+msgstr ""
+
+#: 00preferences.rpy:303
+msgid "after choices"
+msgstr ""
+
+#: 00preferences.rpy:310
+msgid "skip after choices"
+msgstr ""
+
+#: 00preferences.rpy:312
+msgid "auto-forward time"
+msgstr ""
+
+#: 00preferences.rpy:326
+msgid "auto-forward"
+msgstr ""
+
+#: 00preferences.rpy:333
+msgid "Auto forward"
+msgstr ""
+
+#: 00preferences.rpy:336
+msgid "auto-forward after click"
+msgstr ""
+
+#: 00preferences.rpy:345
+msgid "automatic move"
+msgstr ""
+
+#: 00preferences.rpy:354
+msgid "wait for voice"
+msgstr ""
+
+#: 00preferences.rpy:363
+msgid "voice sustain"
+msgstr ""
+
+#: 00preferences.rpy:372
+msgid "self voicing"
+msgstr ""
+
+#: 00preferences.rpy:381
+msgid "clipboard voicing"
+msgstr ""
+
+#: 00preferences.rpy:390
+msgid "debug voicing"
+msgstr ""
+
+#: 00preferences.rpy:399
+msgid "emphasize audio"
+msgstr ""
+
+#: 00preferences.rpy:408
+msgid "rollback side"
+msgstr ""
+
+#: 00preferences.rpy:418
+msgid "gl powersave"
+msgstr ""
+
+#: 00preferences.rpy:424
+msgid "gl framerate"
+msgstr ""
+
+#: 00preferences.rpy:427
+msgid "gl tearing"
+msgstr ""
+
+#: 00preferences.rpy:430
+msgid "font transform"
+msgstr ""
+
+#: 00preferences.rpy:433
+msgid "font size"
+msgstr ""
+
+#: 00preferences.rpy:441
+msgid "font line spacing"
+msgstr ""
+
+#: 00preferences.rpy:460
+msgid "music volume"
+msgstr ""
+
+#: 00preferences.rpy:461
+msgid "sound volume"
+msgstr ""
+
+#: 00preferences.rpy:462
+msgid "voice volume"
+msgstr ""
+
+#: 00preferences.rpy:463
+msgid "mute music"
+msgstr ""
+
+#: 00preferences.rpy:464
+msgid "mute sound"
+msgstr ""
+
+#: 00preferences.rpy:465
+msgid "mute voice"
+msgstr ""
+
+#: 00preferences.rpy:466
+msgid "mute all"
+msgstr ""
+
+#: 00preferences.rpy:547
+msgid "Clipboard voicing enabled. Press 'shift+C' to disable."
+msgstr ""
+
+#: 00preferences.rpy:549
+msgid ""
+"Self-voicing would say \"[renpy.display.tts.last]\". Press 'alt+shift+V' to "
+"disable."
+msgstr ""
+
+#: 00preferences.rpy:551
+msgid "Self-voicing enabled. Press 'v' to disable."
+msgstr ""
+
+#: 00iap.rpy:217
+msgid ""
+"Contacting App Store\n"
+"Please Wait..."
+msgstr ""
+
+#: 00updater.rpy:375
+msgid "The Ren'Py Updater is not supported on mobile devices."
+msgstr ""
+
+#: 00updater.rpy:494
+msgid "An error is being simulated."
+msgstr ""
+
+#: 00updater.rpy:678
+msgid ""
+"Either this project does not support updating, or the update status file was "
+"deleted."
+msgstr ""
+
+#: 00updater.rpy:692
+msgid "This account does not have permission to perform an update."
+msgstr ""
+
+#: 00updater.rpy:695
+msgid "This account does not have permission to write the update log."
+msgstr ""
+
+#: 00updater.rpy:722
+msgid "Could not verify update signature."
+msgstr ""
+
+#: 00updater.rpy:997
+msgid "The update file was not downloaded."
+msgstr ""
+
+#: 00updater.rpy:1015
+msgid ""
+"The update file does not have the correct digest - it may have been "
+"corrupted."
+msgstr ""
+
+#: 00updater.rpy:1071
+msgid "While unpacking {}, unknown type {}."
+msgstr ""
+
+#: 00updater.rpy:1439
+msgid "Updater"
+msgstr ""
+
+#: 00updater.rpy:1446
+msgid "An error has occured:"
+msgstr ""
+
+#: 00updater.rpy:1448
+msgid "Checking for updates."
+msgstr ""
+
+#: 00updater.rpy:1450
+msgid "This program is up to date."
+msgstr ""
+
+#: 00updater.rpy:1452
+msgid "[u.version] is available. Do you want to install it?"
+msgstr ""
+
+#: 00updater.rpy:1454
+msgid "Preparing to download the updates."
+msgstr ""
+
+#: 00updater.rpy:1456
+msgid "Downloading the updates."
+msgstr ""
+
+#: 00updater.rpy:1458
+msgid "Unpacking the updates."
+msgstr ""
+
+#: 00updater.rpy:1460
+msgid "Finishing up."
+msgstr ""
+
+#: 00updater.rpy:1462
+msgid "The updates have been installed. The program will restart."
+msgstr ""
+
+#: 00updater.rpy:1464
+msgid "The updates have been installed."
+msgstr ""
+
+#: 00updater.rpy:1466
+msgid "The updates were cancelled."
+msgstr ""
+
+#: 00updater.rpy:1481
+msgid "Proceed"
+msgstr ""
+
+#: 00gallery.rpy:587
+msgid "Image [index] of [count] locked."
+msgstr ""
+
+#: 00gallery.rpy:607
+msgid "prev"
+msgstr ""
+
+#: 00gallery.rpy:608
+msgid "next"
+msgstr ""
+
+#: 00gallery.rpy:609
+msgid "slideshow"
+msgstr ""
+
+#: 00gallery.rpy:610
+msgid "return"
+msgstr ""
+
+#: 00gltest.rpy:70
+msgid "Renderer"
+msgstr ""
+
+#: 00gltest.rpy:74
+msgid "Automatically Choose"
+msgstr ""
+
+#: 00gltest.rpy:79
+msgid "Force Angle/DirectX Renderer"
+msgstr ""
+
+#: 00gltest.rpy:83
+msgid "Force OpenGL Renderer"
+msgstr ""
+
+#: 00gltest.rpy:87
+msgid "Force Software Renderer"
+msgstr ""
+
+#: 00gltest.rpy:93
+msgid "NPOT"
+msgstr ""
+
+#: 00gltest.rpy:97
+msgid "Enable"
+msgstr ""
+
+#: 00gltest.rpy:131
+msgid "Powersave"
+msgstr ""
+
+#: 00gltest.rpy:145
+msgid "Framerate"
+msgstr ""
+
+#: 00gltest.rpy:149
+msgid "Screen"
+msgstr ""
+
+#: 00gltest.rpy:153
+msgid "60"
+msgstr ""
+
+#: 00gltest.rpy:157
+msgid "30"
+msgstr ""
+
+#: 00gltest.rpy:163
+msgid "Tearing"
+msgstr ""
+
+#: 00gltest.rpy:179
+msgid "Changes will take effect the next time this program is run."
+msgstr ""
+
+#: 00gltest.rpy:213
+msgid "Performance Warning"
+msgstr ""
+
+#: 00gltest.rpy:218
+msgid "This computer is using software rendering."
+msgstr ""
+
+#: 00gltest.rpy:220
+msgid "This computer is not using shaders."
+msgstr ""
+
+#: 00gltest.rpy:222
+msgid "This computer is displaying graphics slowly."
+msgstr ""
+
+#: 00gltest.rpy:224
+msgid "This computer has a problem displaying graphics: [problem]."
+msgstr ""
+
+#: 00gltest.rpy:229
+msgid ""
+"Its graphics drivers may be out of date or not operating correctly. This can "
+"lead to slow or incorrect graphics display. Updating DirectX could fix this "
+"problem."
+msgstr ""
+
+#: 00gltest.rpy:231
+msgid ""
+"Its graphics drivers may be out of date or not operating correctly. This can "
+"lead to slow or incorrect graphics display."
+msgstr ""
+
+#: 00gltest.rpy:236
+msgid "Update DirectX"
+msgstr ""
+
+#: 00gltest.rpy:242
+msgid "Continue, Show this warning again"
+msgstr ""
+
+#: 00gltest.rpy:246
+msgid "Continue, Don't show warning again"
+msgstr ""
+
+#: 00gltest.rpy:264
+msgid "Updating DirectX."
+msgstr ""
+
+#: 00gltest.rpy:268
+msgid ""
+"DirectX web setup has been started. It may start minimized in the taskbar. "
+"Please follow the prompts to install DirectX."
+msgstr ""
+
+#: 00gltest.rpy:272
+msgid ""
+"{b}Note:{/b} Microsoft's DirectX web setup program will, by default, install "
+"the Bing toolbar. If you do not want this toolbar, uncheck the appropriate "
+"box."
+msgstr ""
+
+#: 00gltest.rpy:276
+msgid "When setup finishes, please click below to restart this program."
+msgstr ""
+
+#: 00gltest.rpy:278
+msgid "Restart"
+msgstr ""
+
+#: 00gamepad.rpy:32
+msgid "Select Gamepad to Calibrate"
+msgstr ""
+
+#: 00gamepad.rpy:35
+msgid "No Gamepads Available"
+msgstr ""
+
+#: 00gamepad.rpy:54
+msgid "Calibrating [name] ([i]/[total])"
+msgstr ""
+
+#: 00gamepad.rpy:58
+msgid "Press or move the [control!r] [kind]."
+msgstr ""
+
+#: 00gamepad.rpy:66
+msgid "Skip (A)"
+msgstr ""
+
+#: 00gamepad.rpy:69
+msgid "Back (B)"
+msgstr ""
+
+#: _errorhandling.rpym:538
+msgid "Open"
+msgstr ""
+
+#: _errorhandling.rpym:540
+msgid "Opens the traceback.txt file in a text editor."
+msgstr ""
+
+#: _errorhandling.rpym:542
+msgid "Copy BBCode"
+msgstr ""
+
+#: _errorhandling.rpym:544
+msgid ""
+"Copies the traceback.txt file to the clipboard as BBcode for forums like "
+"https://lemmasoft.renai.us/."
+msgstr ""
+
+#: _errorhandling.rpym:546
+msgid "Copy Markdown"
+msgstr ""
+
+#: _errorhandling.rpym:548
+msgid "Copies the traceback.txt file to the clipboard as Markdown for Discord."
+msgstr ""
+
+#: _errorhandling.rpym:577
+msgid "An exception has occurred."
+msgstr ""
+
+#: _errorhandling.rpym:597
+msgid "Rollback"
+msgstr ""
+
+#: _errorhandling.rpym:599
+msgid ""
+"Attempts a roll back to a prior time, allowing you to save or choose a "
+"different choice."
+msgstr ""
+
+#: _errorhandling.rpym:602
+msgid "Ignore"
+msgstr ""
+
+#: _errorhandling.rpym:606
+msgid "Ignores the exception, allowing you to continue."
+msgstr ""
+
+#: _errorhandling.rpym:608
+msgid ""
+"Ignores the exception, allowing you to continue. This often leads to "
+"additional errors."
+msgstr ""
+
+#: _errorhandling.rpym:612
+msgid "Reload"
+msgstr ""
+
+#: _errorhandling.rpym:614
+msgid ""
+"Reloads the game from disk, saving and restoring game state if possible."
+msgstr ""
+
+#: _errorhandling.rpym:617
+msgid "Console"
+msgstr ""
+
+#: _errorhandling.rpym:619
+msgid "Opens a console to allow debugging the problem."
+msgstr ""
+
+#: _errorhandling.rpym:629
+msgid "Quits the game."
+msgstr ""
+
+#: _errorhandling.rpym:653
+msgid "Parsing the script failed."
+msgstr ""
+
+#: _errorhandling.rpym:679
+msgid "Opens the errors.txt file in a text editor."
+msgstr ""
+
+#: _errorhandling.rpym:683
+msgid ""
+"Copies the errors.txt file to the clipboard as BBcode for forums like "
+"https://lemmasoft.renai.us/."
+msgstr ""
+
+#: _errorhandling.rpym:687
+msgid "Copies the errors.txt file to the clipboard as Markdown for Discord."
+msgstr ""
+
+#: game/script.rpy:27
+msgid "You've created a new Ren'Py game."
+msgstr "Vous avez créé un nouveau jeu Ren'Py."
+
+#: game/script.rpy:29
+msgctxt "start_a1247ef6"
+msgid ""
+"Once you add a story, pictures, and music, you can release it to the world!"
+msgstr ""
+"Une fois que vous avez ajouté histoire, images et musique, vous pouvez le "
+"diffuser au monde entier! dup1"
+
+#: game/script.rpy:31
+msgctxt "start_a1247ef6_1"
+msgid ""
+"Once you add a story, pictures, and music, you can release it to the world!"
+msgstr ""
+"Une fois que vous avez ajouté histoire, images et musique, vous pouvez le "
+"diffuser au monde entier! dup2"
+
+#: game/script.rpy:33
+msgid "Multiple strings"
+msgstr "Chaînes multiples"
+
+#: game/script.rpy:35
+msgid "Tricky double-quoted \"' multiple strings"
+msgstr "Chaînes de caractères délicates \"' entre guillemets doubles"
+
+#: game/script.rpy:37
+msgid "Tricky single-quoted \"' multiple strings"
+msgstr "Chaînes de caractères délicates \"' entre guillemets simples"
+
+#: game/script.rpy:39
+msgid "Tricky single/double \"' multiple strings 1"
+msgstr "Chaînes de caractères délicates  \"' simple/double 1"
+
+#: game/script.rpy:41
+msgid "Tricky single/double '\" multiple strings 2"
+msgstr "Chaînes de caractères délicates  \"' simple/double 2"
+
+#: game/script.rpy:43
+msgid "Tricky double/double \"' multiple strings"
+msgstr "Chaînes de caractères délicates  \"' double/double"
+
+#: game/script.rpy:45
+msgid "inline transition"
+msgstr "transition sur la même ligne"
+
+#: game/script.rpy:47
+msgid "nointeract"
+msgstr "mot-clef nointeract"
+
+#: game/script.rpy:49
+msgid "Implicit narrator"
+msgstr "Narrateur implicite"
+
+#: game/script.rpy:51
+msgctxt "start_c14c7c82"
+msgid "single-quoted \" string"
+msgstr "chaîne de caractères entre guillemets simples dup1"
+
+#: game/script.rpy:53
+msgctxt "start_cb471577"
+msgid "single-quoted \" string"
+msgstr "chaîne de caractères entre guillemets simples dup2"
+
+#: game/script.rpy:59
+msgid "Then just use that character in a say statement."
+msgstr "Puis utilisez ce personnage dans une commande say."
+
+#: game/script.rpy:61
+msgid "You use 'nvl clear' to clear the screen when that becomes necessary."
+msgstr ""
+"Vous pouvez utiliser 'nvl clear' pour vider l'écran quand cela devient "
+"nécessaire."
+
+#: game/script.rpy:65
+msgid "multiline triple-quoted dialog entry without newlines"
+msgstr ""
+"entrée de dialogue multi-lignes entre guillemets triples sans retours à la "
+"ligne"
+
+#: game/script.rpy:74
+msgid ""
+"Roses are red\n"
+" Violet are blue\n"
+" Regexs are hard\n"
+" Except for you?"
+msgstr ""
+"Les roses sont rouge\n"
+"Les violettes sont bleues\n"
+"Les regexs c'est dur\n"
+"Sauf pour nous deux?"
+
+#: game/script.rpy:81
+msgid ""
+"multiline\n"
+"dialog\n"
+"entry\n"
+"with\n"
+"newlines"
+msgstr ""
+"entrée de\n"
+"dialogue\n"
+"multi-lignes\n"
+"avec\n"
+"retours à la ligne"
+
+#: game/script.rpy:83
+msgctxt "start_b74edc25"
+msgid "test"
+msgstr "test dup dialogue"
+
+#: script.rpy:7
+msgctxt "script.rpy:7"
+msgid "Eileen"
+msgstr "Hélène personnage dup"
+
+#: script.rpy:33
+msgid "string ' character"
+msgstr "personnage ' chaîne de caractères"
+
+#: script.rpy:37
+msgid "string \" character"
+msgstr "personnage \" chaîne de caractères"
+
+#: script.rpy:45
+msgid "string character"
+msgstr "personnage chaîne de caractères"
+
+#: script.rpy:83
+msgid ""
+"multiline\n"
+"character"
+msgstr ""
+"personnage\n"
+"multi-lignes"
+
+#: script.rpy:85
+msgid "dupmenutitle"
+msgstr "dupmenutitre"
+
+#: script.rpy:85
+msgid "dupmenuentry"
+msgstr "dupmenuentrée"
+
+#: game/dup.rpy:3
+msgid "Entering dup.rpy"
+msgstr "Entrée dans dup.rpy"
+
+#: game/dup.rpy:5
+msgctxt "dup_c1842022"
+msgid "Eileen"
+msgstr "Hélène dialogue dup"
+
+#: screens.rpy:256
+msgid "Back"
+msgstr ""
+
+#: screens.rpy:257
+msgid "History"
+msgstr ""
+
+#: screens.rpy:258
+msgid "Skip"
+msgstr ""
+
+#: screens.rpy:259
+msgid "Auto"
+msgstr ""
+
+#: screens.rpy:260
+msgid "Save"
+msgstr ""
+
+#: screens.rpy:261
+msgid "Q.Save"
+msgstr ""
+
+#: screens.rpy:262
+msgid "Q.Load"
+msgstr ""
+
+#: screens.rpy:263
+msgid "Prefs"
+msgstr ""
+
+#: screens.rpy:304
+msgid "Start"
+msgstr ""
+
+#: screens.rpy:312
+msgid "Load"
+msgstr ""
+
+#: screens.rpy:314
+msgid "Preferences"
+msgstr ""
+
+#: screens.rpy:318
+msgid "End Replay"
+msgstr ""
+
+#: screens.rpy:322
+msgid "Main Menu"
+msgstr ""
+
+#: screens.rpy:324
+msgid "About"
+msgstr ""
+
+#: screens.rpy:329
+msgid "Help"
+msgstr ""
+
+#: screens.rpy:332
+msgid "Quit"
+msgstr ""
+
+#: screens.rpy:473
+msgid "Return"
+msgstr ""
+
+#: screens.rpy:557
+msgid "Version [config.version!t]\n"
+msgstr ""
+
+#: screens.rpy:563
+msgid ""
+"Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n"
+"\n"
+"[renpy.license!t]"
+msgstr ""
+
+#: screens.rpy:603
+msgid "Page {}"
+msgstr ""
+
+#: screens.rpy:603
+msgid "Automatic saves"
+msgstr ""
+
+#: screens.rpy:603
+msgid "Quick saves"
+msgstr ""
+
+#: screens.rpy:645
+msgid "{#file_time}%A, %B %d %Y, %H:%M"
+msgstr ""
+
+#: screens.rpy:645
+msgid "empty slot"
+msgstr ""
+
+#: screens.rpy:662
+msgid "<"
+msgstr ""
+
+#: screens.rpy:665
+msgid "{#auto_page}A"
+msgstr ""
+
+#: screens.rpy:668
+msgid "{#quick_page}Q"
+msgstr ""
+
+#: screens.rpy:674
+msgid ">"
+msgstr ""
+
+#: screens.rpy:731
+msgid "Display"
+msgstr ""
+
+#: screens.rpy:732
+msgid "Window"
+msgstr ""
+
+#: screens.rpy:733
+msgid "Fullscreen"
+msgstr ""
+
+#: screens.rpy:737
+msgid "Rollback Side"
+msgstr ""
+
+#: screens.rpy:738
+msgid "Disable"
+msgstr ""
+
+#: screens.rpy:739
+msgid "Left"
+msgstr ""
+
+#: screens.rpy:740
+msgid "Right"
+msgstr ""
+
+#: screens.rpy:745
+msgid "Unseen Text"
+msgstr ""
+
+#: screens.rpy:746
+msgid "After Choices"
+msgstr ""
+
+#: screens.rpy:747
+msgid "Transitions"
+msgstr ""
+
+#: screens.rpy:760
+msgid "Text Speed"
+msgstr ""
+
+#: screens.rpy:764
+msgid "Auto-Forward Time"
+msgstr ""
+
+#: screens.rpy:771
+msgid "Music Volume"
+msgstr ""
+
+#: screens.rpy:778
+msgid "Sound Volume"
+msgstr ""
+
+#: screens.rpy:784
+msgid "Test"
+msgstr ""
+
+#: screens.rpy:788
+msgid "Voice Volume"
+msgstr ""
+
+#: screens.rpy:799
+msgid "Mute All"
+msgstr ""
+
+#: screens.rpy:918
+msgid "The dialogue history is empty."
+msgstr ""
+
+#: screens.rpy:988
+msgid "Keyboard"
+msgstr ""
+
+#: screens.rpy:989
+msgid "Mouse"
+msgstr ""
+
+#: screens.rpy:992
+msgid "Gamepad"
+msgstr ""
+
+#: screens.rpy:1005
+msgid "Enter"
+msgstr ""
+
+#: screens.rpy:1006
+msgid "Advances dialogue and activates the interface."
+msgstr ""
+
+#: screens.rpy:1009
+msgid "Space"
+msgstr ""
+
+#: screens.rpy:1010
+msgid "Advances dialogue without selecting choices."
+msgstr ""
+
+#: screens.rpy:1013
+msgid "Arrow Keys"
+msgstr ""
+
+#: screens.rpy:1014
+msgid "Navigate the interface."
+msgstr ""
+
+#: screens.rpy:1017
+msgid "Escape"
+msgstr ""
+
+#: screens.rpy:1018
+msgid "Accesses the game menu."
+msgstr ""
+
+#: screens.rpy:1021
+msgid "Ctrl"
+msgstr ""
+
+#: screens.rpy:1022
+msgid "Skips dialogue while held down."
+msgstr ""
+
+#: screens.rpy:1025
+msgid "Tab"
+msgstr ""
+
+#: screens.rpy:1026
+msgid "Toggles dialogue skipping."
+msgstr ""
+
+#: screens.rpy:1029
+msgid "Page Up"
+msgstr ""
+
+#: screens.rpy:1030
+msgid "Rolls back to earlier dialogue."
+msgstr ""
+
+#: screens.rpy:1033
+msgid "Page Down"
+msgstr ""
+
+#: screens.rpy:1034
+msgid "Rolls forward to later dialogue."
+msgstr ""
+
+#: screens.rpy:1038
+msgid "Hides the user interface."
+msgstr ""
+
+#: screens.rpy:1042
+msgid "Takes a screenshot."
+msgstr ""
+
+#: screens.rpy:1046
+msgid "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
+msgstr ""
+
+#: screens.rpy:1052
+msgid "Left Click"
+msgstr ""
+
+#: screens.rpy:1056
+msgid "Middle Click"
+msgstr ""
+
+#: screens.rpy:1060
+msgid "Right Click"
+msgstr ""
+
+#: screens.rpy:1064
+msgid ""
+"Mouse Wheel Up\n"
+"Click Rollback Side"
+msgstr ""
+
+#: screens.rpy:1068
+msgid "Mouse Wheel Down"
+msgstr ""
+
+#: screens.rpy:1075
+msgid ""
+"Right Trigger\n"
+"A/Bottom Button"
+msgstr ""
+
+#: screens.rpy:1079
+msgid ""
+"Left Trigger\n"
+"Left Shoulder"
+msgstr ""
+
+#: screens.rpy:1083
+msgid "Right Shoulder"
+msgstr ""
+
+#: screens.rpy:1088
+msgid "D-Pad, Sticks"
+msgstr ""
+
+#: screens.rpy:1092
+msgid "Start, Guide"
+msgstr ""
+
+#: screens.rpy:1096
+msgid "Y/Top Button"
+msgstr ""
+
+#: screens.rpy:1099
+msgid "Calibrate"
+msgstr ""
+
+#: screens.rpy:1164
+msgid "Yes"
+msgstr ""
+
+#: screens.rpy:1165
+msgid "No"
+msgstr ""
+
+#: screens.rpy:1211
+msgid "Skipping"
+msgstr ""
+
+#: screens.rpy:1434
+msgid "Menu"
+msgstr ""
+
+#: options.rpy:15
+msgctxt "options.rpy:15"
+msgid "test"
+msgstr "test dup chaîne hors dialogue"
