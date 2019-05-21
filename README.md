@@ -75,9 +75,8 @@ With gettext: use it as [compendium](https://www.gnu.org/software/gettext/manual
 
 With Poedit: use it for Translation Memory:
 
-- Open `the_question.po`
-- Preferences > TM > Manage > Import Translation Files...
-- Open `yourgame.po`
+- Preferences > TM > Manage > Import Translation Files... > `the_question-lang.po`
+- Open `yourgame-lang.po`
 - Catalog > Pre-translate
 
 Note: Poedit ignores very short strings.
@@ -109,5 +108,5 @@ Don't remove the `.rpyc` files from the `tl/language` directories once
 you release a version of your game.  Otherwise your players will lose
 their seen texts on the next update, which is a frustrating gaming
 experience.  This is not specific to renpy-ttk but it's easier to
-forget about it.  Just leave them around and let Ren'Py update
-("recompile") them.
+forget about it.  You can remove `.rpy` files, but just leave `.rpyc`
+files around and let Ren'Py update ("recompile") them.
