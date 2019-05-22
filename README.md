@@ -3,6 +3,8 @@
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
 <https://www.beuc.net/renpy-ttk/>
+<https://renpy.beuc.net/download/renpy-ttk-latest.zip>
+`fossil clone https://www.beuc.net/renpy-ttk/`
 
 
 ## Features / benefits
