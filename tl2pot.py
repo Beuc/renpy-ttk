@@ -51,8 +51,11 @@ def tl2pot(projectpath, outfile='game.pot'):
                 lines[0] = lines[0][3:]  # BOM
 
             lines.reverse()
+            cur_strings = []
             while len(lines) > 0:
-                strings.extend(tlparser.parse_next_block(lines))
+                cur_strings.extend(tlparser.parse_next_block(lines))
+            cur_strings.sort(key=lambda s: (s['source'].split(':')[0], int(s['source'].split(':')[1])))
+            strings.extend(cur_strings)
     
     occurrences = {}
     for s in strings:
