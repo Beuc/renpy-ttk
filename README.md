@@ -7,7 +7,7 @@ Tools for translators working on Ren'Py games, in particular PO format import/ex
 
 Work on your Ren'Py translation using the PO format. This brings support for iterative translation:
 
-- Translatable strings are kept in the same order as in the Ren'Py scripts, to give you context, even after an update.  Source file information is maintained, so you can can sort with other criteria in your PO editor if needed.
+- Translatable strings are kept in the same order as in the Ren'Py scripts, to give you context, even after an update.  You can also sort by other criteria in your PO editor if needed.
 
 - Fuzzy matching on update, so you can e.g. update a translation after a typo fix with a single click/keystroke.
 
