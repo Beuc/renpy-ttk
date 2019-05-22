@@ -35,5 +35,5 @@ functest:
 	./functest.sh
 
 dist:
-	if [ -z "$(VERSION)" ]; then echo "Missing VERSION"; return 1; fi
+	@if [ -z "$(VERSION)" ]; then echo "Missing VERSION"; return 1; fi
 	fossil zip --name "renpy-ttk-$(VERSION)" -X '.fossil-settings/*' $(VERSION) renpy-ttk-$(VERSION).zip
