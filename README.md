@@ -2,7 +2,7 @@
 
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
-https://www.beuc.net/renpy-ttk/
+<https://www.beuc.net/renpy-ttk/>
 
 
 ## Features / benefits
