@@ -2,6 +2,8 @@
 
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
+https://www.beuc.net/renpy-ttk/
+
 
 ## Features / benefits
 
@@ -103,6 +105,11 @@ untranslated strings with the originals (so the player won't get empty
 texts), hence a double import will import original texts as
 translations.  Of course you can still import new untranslated strings
 as a POT template (`tl2pot`).
+
+Ren'Py <= 7.2.2 uses inconsistent paths, which partially breaks the
+strings ordering (dialogues and choices get grouped separately).  You
+may apply [#1834](https://github.com/renpy/renpy/pull/1834) to fix
+this.
 
 Don't remove the `.rpyc` files from the `tl/language` directories once
 you release a version of your game.  Otherwise your players will lose
