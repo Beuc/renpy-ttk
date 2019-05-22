@@ -80,7 +80,7 @@ Except for you?
 
     e """multiline\ndialog\nentry\nwith\nnewlines"""
 
-    _("multiline\ncharacter") "test"
+    _("multiline\ncharacter") "Not translated"
 
     menu:
         "dupmenutitle"

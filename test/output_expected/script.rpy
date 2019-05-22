@@ -123,38 +123,38 @@ translate french start_ec095fb6:
     e "entrée de\ndialogue\nmulti-lignes\navec\nretours à la ligne"
 
 # game/script.rpy:83
-translate french start_b74edc25:
+translate french start_d9085dc3:
 
-    # _("multiline\ncharacter") "test"
-    _("multiline\ncharacter") "test dup dialogue"
+    # _("multiline\ncharacter") "Not translated"
+    _("multiline\ncharacter") "Not translated"
 
 translate french strings:
 
-    # script.rpy:7
+    # game/script.rpy:7
     old "Eileen"
     new "Hélène personnage dup"
 
-    # script.rpy:33
+    # game/script.rpy:33
     old "string ' character"
     new "personnage ' chaîne de caractères"
 
-    # script.rpy:37
+    # game/script.rpy:37
     old "string \" character"
     new "personnage \" chaîne de caractères"
 
-    # script.rpy:45
+    # game/script.rpy:45
     old "string character"
     new "personnage chaîne de caractères"
 
-    # script.rpy:83
+    # game/script.rpy:83
     old "multiline\ncharacter"
     new "personnage\nmulti-lignes"
 
-    # script.rpy:85
+    # game/script.rpy:85
     old "dupmenutitle"
     new "dupmenutitre"
 
-    # script.rpy:85
+    # game/script.rpy:85
     old "dupmenuentry"
     new "dupmenuentrée"
 

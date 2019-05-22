@@ -67,7 +67,7 @@ Run `tl2po` on "The Question" and import the `.po` translation file.
 
 With gettext: use it as [compendium](https://www.gnu.org/software/gettext/manual/html_node/Using-Compendia.html#Using-Compendia):
 
-- new:       `msgmerge -C the_question.po /dev/null yourgame.pot > yourgame-lang.po`
+- new:       `msgmerge -C the_question.po /dev/null yourgame.pot -o yourgame-lang.po`
 
 - update:    `msgmerge -C the_question.po --update yourgame-lang.po yourgame.pot`
 
