@@ -113,12 +113,15 @@ screen main_menu():
         null width 20
         vbox:
             null height 10
-            textbutton "Generate POT template (tl2pot)" action TL2POT()
-            textbutton "Convert existing Ren'Py translations to PO catalog (tl2po)" action TL2PO()
-            textbutton "Update Ren'Py translations from MO catalog (mo2tl)" action MO2TL()
+            textbutton "tl2pot: generate POT template for your game" action TL2POT()
+            textbutton "tl2po: extract existing Ren'Py translations to PO catalog" action TL2PO()
+            textbutton "mo2tl: inject MO catalog into Ren'Py translations" action MO2TL()
             null height 20
-            text "Set language:":
-                color "#000000"
+            if projectpath:
+                text "Set language:"
+            else:
+                text "< Select project"
+
             for l in languages_list():
                 textbutton l action SetVariable('language',l)
 
