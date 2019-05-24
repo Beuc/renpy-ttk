@@ -27,7 +27,8 @@ from __future__ import print_function
 import sys, os, fnmatch, operator
 import re
 import shutil
-import tlparser, tlrun
+import rttk.run, rttk.tlparser
+
 
 def tl2pot(projectpath, outfile='game.pot'):
     # Refresh strings
@@ -39,7 +40,7 @@ def tl2pot(projectpath, outfile='game.pot'):
 
     print("Calling Ren'Py translate to get the latest strings")
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
+    rttk.run.renpy([projectpath, 'translate', 'pot', '--compile'])
 
     strings = []
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
@@ -53,7 +54,7 @@ def tl2pot(projectpath, outfile='game.pot'):
             lines.reverse()
             cur_strings = []
             while len(lines) > 0:
-                cur_strings.extend(tlparser.parse_next_block(lines))
+                cur_strings.extend(rttk.tlparser.parse_next_block(lines))
             cur_strings.sort(key=lambda s: (s['source'].split(':')[0], int(s['source'].split(':')[1])))
             strings.extend(cur_strings)
     

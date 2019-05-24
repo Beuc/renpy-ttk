@@ -31,7 +31,7 @@ from __future__ import print_function
 import sys, os, fnmatch, operator
 import re
 import shutil
-import tlparser, tlrun
+import rttk.run, rttk.tlparser
 
 
 def tl2po(projectpath, language, outfile=None):
@@ -51,7 +51,7 @@ def tl2po(projectpath, language, outfile=None):
     except OSError:
         pass
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
+    rttk.run.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     originals = []
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
@@ -64,7 +64,7 @@ def tl2po(projectpath, language, outfile=None):
 
             lines.reverse()
             while len(lines) > 0:
-                originals.extend(tlparser.parse_next_block(lines))
+                originals.extend(rttk.tlparser.parse_next_block(lines))
 
     translated = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',language)):
@@ -77,7 +77,7 @@ def tl2po(projectpath, language, outfile=None):
 
             lines.reverse()
             while len(lines) > 0:
-                translated.extend(tlparser.parse_next_block(lines))
+                translated.extend(rttk.tlparser.parse_next_block(lines))
 
     t_blocks_index = {}
     t_basestr_index = {}

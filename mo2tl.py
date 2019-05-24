@@ -28,7 +28,7 @@ import sys, os, fnmatch
 import re
 import subprocess, shutil
 import tempfile
-import tlparser, tlrun
+import rttk.run, rttk.tlparser
 import gettext
 
 # Doc: manual .mo test:
@@ -71,7 +71,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
     except OSError:
         pass
     # using --compile otherwise Ren'Py sometimes skips half of the files
-    tlrun.renpy([projectpath, 'translate', 'pot', '--compile'])
+    rttk.run.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     # Prepare msgid:untranslated_string index
     originals = []
@@ -85,7 +85,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
 
             lines.reverse()
             while len(lines) > 0:
-                originals.extend(tlparser.parse_next_block(lines))
+                originals.extend(rttk.tlparser.parse_next_block(lines))
 
     o_blocks_index = {}
     o_basestr_index = {}
@@ -96,7 +96,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             o_basestr_index[s['text']] = s['translation']
 
     print("Calling Ren'Py translate to refresh " + renpy_target_language)
-    tlrun.renpy([projectpath, 'translate', renpy_target_language])
+    rttk.run.renpy([projectpath, 'translate', renpy_target_language])
 
     # Setup gettext directory structure
     localedir = tempfile.mkdtemp()
@@ -131,11 +131,11 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             out.write('\xef\xbb\xbf')  # BOM, just in case
             while len(lines) > 0:
                 line = lines.pop()
-                if tlparser.is_empty(line):
+                if rttk.tlparser.is_empty(line):
                     out.write(line)
-                elif tlparser.is_comment(line):
+                elif rttk.tlparser.is_comment(line):
                     out.write(line)
-                elif tlparser.is_block_start(line):
+                elif rttk.tlparser.is_block_start(line):
                     msgid = line.strip(':\n').split()[2]
                     if msgid == 'strings':
                         # basic strings block
@@ -145,16 +145,16 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                         msgctxt = ''
                         while len(lines) > 0:
                             line = lines.pop()
-                            if tlparser.is_empty(line):
+                            if rttk.tlparser.is_empty(line):
                                 pass
-                            elif tlparser.is_comment(line):
+                            elif rttk.tlparser.is_comment(line):
                                 msgctxt = line.lstrip().lstrip('#').strip()
                             elif not line.startswith(' '):
                                 # end of block
                                 lines.append(line)
                                 break
                             elif line.lstrip().startswith('old '):
-                                msgstr = tlparser.extract_base_string(line)['text']
+                                msgstr = rttk.tlparser.extract_base_string(line)['text']
                                 lookup = msgstr.decode('string_escape')
                                 lookup = msgctxt+'\x04'+lookup
                                 translation = gettext.dgettext('game', lookup)
@@ -166,7 +166,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 msgctxt = ''
                             elif line.lstrip().startswith('new '):
                                 if translation is not None:
-                                    s = tlparser.extract_base_string(line)
+                                    s = rttk.tlparser.extract_base_string(line)
                                     line = line[:s['start']]+translation+line[s['end']:]
                                 translation = None
                             else:
@@ -178,18 +178,18 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                         out.write(line)
                         while len(lines) > 0:
                             line = lines.pop()
-                            if tlparser.is_empty(line):
+                            if rttk.tlparser.is_empty(line):
                                 pass
                             elif not line.startswith(' '):
                                 # end of block
                                 lines.append(line)
                                 break
-                            elif tlparser.is_comment(line):
+                            elif rttk.tlparser.is_comment(line):
                                 # untranslated original
                                 pass
                             else:
                                 # dialog line
-                                s = tlparser.extract_dialog_string(line)
+                                s = rttk.tlparser.extract_dialog_string(line)
                                 if s is None:
                                     pass  # not a dialog line
                                 elif o_blocks_index.get(msgid, None) is None:
