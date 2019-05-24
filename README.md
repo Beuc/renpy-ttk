@@ -6,6 +6,10 @@ Tools for translators working on Ren'Py games, in particular PO format import/ex
 <https://renpy.beuc.net/download/renpy-ttk-latest.zip>  
 [fossil](https://www.fossil-scm.org/) `clone https://www.beuc.net/renpy-ttk/ ...`
 
+This is [free software](https://www.gnu.org/philosophy/free-sw.html):
+you are free to change and redistribute it under certain conditions;
+see LICENSE for details.
+
 
 ## Features / benefits
 
