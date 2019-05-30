@@ -123,3 +123,13 @@ their seen texts on the next update, which is a frustrating gaming
 experience.  This is not specific to renpy-ttk but it's easier to
 forget about it.  You can remove `.rpy` files, but just leave `.rpyc`
 files around and let Ren'Py update ("recompile") them.
+
+
+## Contact
+
+For feedback and bug reports, you can reach me through
+[Lemma Soft Forums](https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318)
+or [e-mail](mailto:beuc@beuc.net).
+
+If this program was useful to you, please support me through
+[Patreon](https://www.beuc.net/donate/) :)
