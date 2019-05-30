@@ -89,6 +89,9 @@ Except for you?
         "dupmenuentry":
             pass
 
+    voice "path/to/file"
+    e "voiced text"
+
     call dup
 
     return

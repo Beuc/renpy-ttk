@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"PO-Revision-Date: 2019-05-30 19:04+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -11,6 +11,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: renpy/common/00accessibility.rpy:76
+msgid "Font Override"
+msgstr ""
+
+#: renpy/common/00accessibility.rpy:80
+msgid "Default"
+msgstr ""
+
+#: renpy/common/00accessibility.rpy:84
+msgid "DejaVu Sans"
+msgstr ""
+
+#: renpy/common/00accessibility.rpy:88
+msgid "Opendyslexic"
+msgstr ""
+
+#: renpy/common/00accessibility.rpy:94
+msgid "Text Size Scaling"
+msgstr ""
 
 #: renpy/common/00accessibility.rpy:100
 msgid "Reset"
@@ -38,30 +58,6 @@ msgstr ""
 
 #: renpy/common/00accessibility.rpy:133
 msgid "Debug"
-msgstr ""
-
-#: renpy/common/00accessibility.rpy:76
-msgid "Font Override"
-msgstr ""
-
-#: renpy/common/00accessibility.rpy:80
-msgid "Default"
-msgstr ""
-
-#: renpy/common/00accessibility.rpy:84
-msgid "DejaVu Sans"
-msgstr ""
-
-#: renpy/common/00accessibility.rpy:88
-msgid "Opendyslexic"
-msgstr ""
-
-#: renpy/common/00accessibility.rpy:94
-msgid "Text Size Scaling"
-msgstr ""
-
-#: renpy/common/00action_file.rpy:240
-msgid "%b %d, %H:%M"
 msgstr ""
 
 #: renpy/common/00action_file.rpy:26
@@ -92,10 +88,6 @@ msgstr ""
 msgid "{#weekday}Sunday"
 msgstr ""
 
-#: renpy/common/00action_file.rpy:353
-msgid "Save slot %s: [text]"
-msgstr ""
-
 #: renpy/common/00action_file.rpy:37
 msgid "{#weekday_short}Mon"
 msgstr ""
@@ -122,10 +114,6 @@ msgstr ""
 
 #: renpy/common/00action_file.rpy:37
 msgid "{#weekday_short}Sun"
-msgstr ""
-
-#: renpy/common/00action_file.rpy:434
-msgid "Load slot %s: [text]"
 msgstr ""
 
 #: renpy/common/00action_file.rpy:47
@@ -176,22 +164,6 @@ msgstr ""
 msgid "{#month}December"
 msgstr ""
 
-#: renpy/common/00action_file.rpy:487
-msgid "Delete slot [text]"
-msgstr ""
-
-#: renpy/common/00action_file.rpy:569
-msgid "File page auto"
-msgstr ""
-
-#: renpy/common/00action_file.rpy:571
-msgid "File page quick"
-msgstr ""
-
-#: renpy/common/00action_file.rpy:573
-msgid "File page [text]"
-msgstr ""
-
 #: renpy/common/00action_file.rpy:63
 msgid "{#month_short}Jan"
 msgstr ""
@@ -240,6 +212,34 @@ msgstr ""
 msgid "{#month_short}Dec"
 msgstr ""
 
+#: renpy/common/00action_file.rpy:240
+msgid "%b %d, %H:%M"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:353
+msgid "Save slot %s: [text]"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:434
+msgid "Load slot %s: [text]"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:487
+msgid "Delete slot [text]"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:569
+msgid "File page auto"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:571
+msgid "File page quick"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:573
+msgid "File page [text]"
+msgstr ""
+
 #: renpy/common/00action_file.rpy:772
 msgid "Next file page."
 msgstr ""
@@ -262,6 +262,10 @@ msgstr ""
 
 #: renpy/common/00action_other.rpy:355
 msgid "Language [text]"
+msgstr ""
+
+#: renpy/common/00director.rpy:708
+msgid "The interactive director is not enabled here."
 msgstr ""
 
 #: renpy/common/00director.rpy:1481
@@ -352,10 +356,6 @@ msgstr ""
 msgid "Audio Filename:"
 msgstr ""
 
-#: renpy/common/00director.rpy:708
-msgid "The interactive director is not enabled here."
-msgstr ""
-
 #: renpy/common/00gallery.rpy:587
 msgid "Image [index] of [count] locked."
 msgstr ""
@@ -398,6 +398,34 @@ msgstr ""
 
 #: renpy/common/00gamepad.rpy:69
 msgid "Back (B)"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:70
+msgid "Renderer"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:74
+msgid "Automatically Choose"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:79
+msgid "Force Angle/DirectX Renderer"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:83
+msgid "Force OpenGL Renderer"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:87
+msgid "Force Software Renderer"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:93
+msgid "NPOT"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:97
+msgid "Enable"
 msgstr ""
 
 #: renpy/common/00gltest.rpy:131
@@ -496,34 +524,6 @@ msgstr ""
 
 #: renpy/common/00gltest.rpy:278
 msgid "Restart"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:70
-msgid "Renderer"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:74
-msgid "Automatically Choose"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:79
-msgid "Force Angle/DirectX Renderer"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:83
-msgid "Force OpenGL Renderer"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:87
-msgid "Force Software Renderer"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:93
-msgid "NPOT"
-msgstr ""
-
-#: renpy/common/00gltest.rpy:97
-msgid "Enable"
 msgstr ""
 
 #: renpy/common/00gui.rpy:371
@@ -814,6 +814,36 @@ msgstr ""
 msgid "Self-voicing enabled. Press 'v' to disable."
 msgstr ""
 
+#: renpy/common/00updater.rpy:375
+msgid "The Ren'Py Updater is not supported on mobile devices."
+msgstr ""
+
+#: renpy/common/00updater.rpy:494
+msgid "An error is being simulated."
+msgstr ""
+
+#: renpy/common/00updater.rpy:678
+msgid ""
+"Either this project does not support updating, or the update status file was "
+"deleted."
+msgstr ""
+
+#: renpy/common/00updater.rpy:692
+msgid "This account does not have permission to perform an update."
+msgstr ""
+
+#: renpy/common/00updater.rpy:695
+msgid "This account does not have permission to write the update log."
+msgstr ""
+
+#: renpy/common/00updater.rpy:722
+msgid "Could not verify update signature."
+msgstr ""
+
+#: renpy/common/00updater.rpy:997
+msgid "The update file was not downloaded."
+msgstr ""
+
 #: renpy/common/00updater.rpy:1015
 msgid ""
 "The update file does not have the correct digest - it may have been "
@@ -874,36 +904,6 @@ msgstr ""
 
 #: renpy/common/00updater.rpy:1481
 msgid "Proceed"
-msgstr ""
-
-#: renpy/common/00updater.rpy:375
-msgid "The Ren'Py Updater is not supported on mobile devices."
-msgstr ""
-
-#: renpy/common/00updater.rpy:494
-msgid "An error is being simulated."
-msgstr ""
-
-#: renpy/common/00updater.rpy:678
-msgid ""
-"Either this project does not support updating, or the update status file was "
-"deleted."
-msgstr ""
-
-#: renpy/common/00updater.rpy:692
-msgid "This account does not have permission to perform an update."
-msgstr ""
-
-#: renpy/common/00updater.rpy:695
-msgid "This account does not have permission to write the update log."
-msgstr ""
-
-#: renpy/common/00updater.rpy:722
-msgid "Could not verify update signature."
-msgstr ""
-
-#: renpy/common/00updater.rpy:997
-msgid "The update file was not downloaded."
 msgstr ""
 
 #: renpy/common/_errorhandling.rpym:538
@@ -1009,154 +1009,7 @@ msgid "Eileen"
 msgstr "Hélène dialogue dup"
 
 #: game/options.rpy:15
-msgctxt "game/options.rpy:15"
 msgid "test"
-msgstr "test dup chaîne hors dialogue"
-
-#: game/screens.rpy:1005
-msgid "Enter"
-msgstr ""
-
-#: game/screens.rpy:1006
-msgid "Advances dialogue and activates the interface."
-msgstr ""
-
-#: game/screens.rpy:1009
-msgid "Space"
-msgstr ""
-
-#: game/screens.rpy:1010
-msgid "Advances dialogue without selecting choices."
-msgstr ""
-
-#: game/screens.rpy:1013
-msgid "Arrow Keys"
-msgstr ""
-
-#: game/screens.rpy:1014
-msgid "Navigate the interface."
-msgstr ""
-
-#: game/screens.rpy:1017
-msgid "Escape"
-msgstr ""
-
-#: game/screens.rpy:1018
-msgid "Accesses the game menu."
-msgstr ""
-
-#: game/screens.rpy:1021
-msgid "Ctrl"
-msgstr ""
-
-#: game/screens.rpy:1022
-msgid "Skips dialogue while held down."
-msgstr ""
-
-#: game/screens.rpy:1025
-msgid "Tab"
-msgstr ""
-
-#: game/screens.rpy:1026
-msgid "Toggles dialogue skipping."
-msgstr ""
-
-#: game/screens.rpy:1029
-msgid "Page Up"
-msgstr ""
-
-#: game/screens.rpy:1030
-msgid "Rolls back to earlier dialogue."
-msgstr ""
-
-#: game/screens.rpy:1033
-msgid "Page Down"
-msgstr ""
-
-#: game/screens.rpy:1034
-msgid "Rolls forward to later dialogue."
-msgstr ""
-
-#: game/screens.rpy:1038
-msgid "Hides the user interface."
-msgstr ""
-
-#: game/screens.rpy:1042
-msgid "Takes a screenshot."
-msgstr ""
-
-#: game/screens.rpy:1046
-msgid "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
-msgstr ""
-
-#: game/screens.rpy:1052
-msgid "Left Click"
-msgstr ""
-
-#: game/screens.rpy:1056
-msgid "Middle Click"
-msgstr ""
-
-#: game/screens.rpy:1060
-msgid "Right Click"
-msgstr ""
-
-#: game/screens.rpy:1064
-msgid ""
-"Mouse Wheel Up\n"
-"Click Rollback Side"
-msgstr ""
-
-#: game/screens.rpy:1068
-msgid "Mouse Wheel Down"
-msgstr ""
-
-#: game/screens.rpy:1075
-msgid ""
-"Right Trigger\n"
-"A/Bottom Button"
-msgstr ""
-
-#: game/screens.rpy:1079
-msgid ""
-"Left Trigger\n"
-"Left Shoulder"
-msgstr ""
-
-#: game/screens.rpy:1083
-msgid "Right Shoulder"
-msgstr ""
-
-#: game/screens.rpy:1088
-msgid "D-Pad, Sticks"
-msgstr ""
-
-#: game/screens.rpy:1092
-msgid "Start, Guide"
-msgstr ""
-
-#: game/screens.rpy:1096
-msgid "Y/Top Button"
-msgstr ""
-
-#: game/screens.rpy:1099
-msgid "Calibrate"
-msgstr ""
-
-#: game/screens.rpy:1164
-msgid "Yes"
-msgstr ""
-
-#: game/screens.rpy:1165
-msgid "No"
-msgstr ""
-
-#: game/screens.rpy:1211
-msgid "Skipping"
-msgstr ""
-
-#: game/screens.rpy:1434
-msgid "Menu"
 msgstr ""
 
 #: game/screens.rpy:256
@@ -1358,6 +1211,157 @@ msgstr ""
 msgid "Gamepad"
 msgstr ""
 
+#: game/screens.rpy:1005
+msgid "Enter"
+msgstr ""
+
+#: game/screens.rpy:1006
+msgid "Advances dialogue and activates the interface."
+msgstr ""
+
+#: game/screens.rpy:1009
+msgid "Space"
+msgstr ""
+
+#: game/screens.rpy:1010
+msgid "Advances dialogue without selecting choices."
+msgstr ""
+
+#: game/screens.rpy:1013
+msgid "Arrow Keys"
+msgstr ""
+
+#: game/screens.rpy:1014
+msgid "Navigate the interface."
+msgstr ""
+
+#: game/screens.rpy:1017
+msgid "Escape"
+msgstr ""
+
+#: game/screens.rpy:1018
+msgid "Accesses the game menu."
+msgstr ""
+
+#: game/screens.rpy:1021
+msgid "Ctrl"
+msgstr ""
+
+#: game/screens.rpy:1022
+msgid "Skips dialogue while held down."
+msgstr ""
+
+#: game/screens.rpy:1025
+msgid "Tab"
+msgstr ""
+
+#: game/screens.rpy:1026
+msgid "Toggles dialogue skipping."
+msgstr ""
+
+#: game/screens.rpy:1029
+msgid "Page Up"
+msgstr ""
+
+#: game/screens.rpy:1030
+msgid "Rolls back to earlier dialogue."
+msgstr ""
+
+#: game/screens.rpy:1033
+msgid "Page Down"
+msgstr ""
+
+#: game/screens.rpy:1034
+msgid "Rolls forward to later dialogue."
+msgstr ""
+
+#: game/screens.rpy:1038
+msgid "Hides the user interface."
+msgstr ""
+
+#: game/screens.rpy:1042
+msgid "Takes a screenshot."
+msgstr ""
+
+#: game/screens.rpy:1046
+msgid "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
+msgstr ""
+
+#: game/screens.rpy:1052
+msgid "Left Click"
+msgstr ""
+
+#: game/screens.rpy:1056
+msgid "Middle Click"
+msgstr ""
+
+#: game/screens.rpy:1060
+msgid "Right Click"
+msgstr ""
+
+#: game/screens.rpy:1064
+msgid ""
+"Mouse Wheel Up\n"
+"Click Rollback Side"
+msgstr ""
+
+#: game/screens.rpy:1068
+msgid "Mouse Wheel Down"
+msgstr ""
+
+#: game/screens.rpy:1075
+msgid ""
+"Right Trigger\n"
+"A/Bottom Button"
+msgstr ""
+
+#: game/screens.rpy:1079
+msgid ""
+"Left Trigger\n"
+"Left Shoulder"
+msgstr ""
+
+#: game/screens.rpy:1083
+msgid "Right Shoulder"
+msgstr ""
+
+#: game/screens.rpy:1088
+msgid "D-Pad, Sticks"
+msgstr ""
+
+#: game/screens.rpy:1092
+msgid "Start, Guide"
+msgstr ""
+
+#: game/screens.rpy:1096
+msgid "Y/Top Button"
+msgstr ""
+
+#: game/screens.rpy:1099
+msgid "Calibrate"
+msgstr ""
+
+#: game/screens.rpy:1164
+msgid "Yes"
+msgstr ""
+
+#: game/screens.rpy:1165
+msgid "No"
+msgstr ""
+
+#: game/screens.rpy:1211
+msgid "Skipping"
+msgstr ""
+
+#: game/screens.rpy:1434
+msgid "Menu"
+msgstr ""
+
+#: game/script.rpy:7
+msgctxt "game/script.rpy:7"
+msgid "Eileen"
+msgstr "Hélène personnage dup"
+
 #: game/script.rpy:27
 msgid "You've created a new Ren'Py game."
 msgstr "Vous avez créé un nouveau jeu Ren'Py."
@@ -1452,11 +1456,6 @@ msgstr ""
 "entrée de dialogue multi-lignes entre guillemets triples sans retours à la "
 "ligne"
 
-#: game/script.rpy:7
-msgctxt "game/script.rpy:7"
-msgid "Eileen"
-msgstr "Hélène personnage dup"
-
 #: game/script.rpy:74
 msgid ""
 "Roses are red\n"
@@ -1484,9 +1483,8 @@ msgstr ""
 "retours à la ligne"
 
 #: game/script.rpy:83
-msgctxt "start_b74edc25"
-msgid "test"
-msgstr "test dup dialogue"
+msgid "Not translated"
+msgstr ""
 
 #: game/script.rpy:83
 msgid ""
@@ -1503,3 +1501,7 @@ msgstr "dupmenutitre"
 #: game/script.rpy:85
 msgid "dupmenuentry"
 msgstr "dupmenuentrée"
+
+#: game/script.rpy:92
+msgid "voiced text"
+msgstr "texte vocalisé"

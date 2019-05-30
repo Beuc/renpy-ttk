@@ -188,12 +188,17 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 # untranslated original
                                 pass
                             else:
-                                # dialog line
+                                # statement
                                 s = rttk.tlparser.extract_dialog_string(line)
                                 if s is None:
-                                    pass  # not a dialog line
+                                    # no double-quoted string, not a dialog line (e.g. nvl)
+                                    pass
+                                elif re.match('^\s*voice\s', line):
+                                    # voice tag, not a dialog line
+                                    pass
                                 elif o_blocks_index.get(msgid, None) is None:
-                                    pass  # obsolete string
+                                    # obsolete translate block, don't translate
+                                    pass
                                 else:
                                     msgstr = o_blocks_index[msgid]
                                     msgctxt = msgid

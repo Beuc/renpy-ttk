@@ -183,5 +183,24 @@ translate pot start_a1247ef6:
             'translation': None
         }])
 
+        lines = """\
+# game/script.rpy:92
+translate french start_06194c6b:
+
+    # voice "path/to/file"
+    # e "voiced text"
+    voice "path/to/file"
+    e "voiced text"
+"""
+        lines = [l+"\n" for l in lines.split("\n")]
+        lines.reverse()
+
+        self.assertEqual(tlparser.parse_next_block(lines), [{
+            'id': 'start_06194c6b',
+            'source': 'game/script.rpy:92',
+            'text': r"voiced text",
+            'translation': None
+        }])
+
 if __name__ == '__main__':
     unittest.main()

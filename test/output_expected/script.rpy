@@ -128,6 +128,14 @@ translate french start_d9085dc3:
     # _("multiline\ncharacter") "Not translated"
     _("multiline\ncharacter") "Not translated"
 
+# game/script.rpy:92
+translate french start_06194c6b:
+
+    # voice "path/to/file"
+    # e "voiced text"
+    voice "path/to/file"
+    e "texte vocalisé"
+
 translate french strings:
 
     # game/script.rpy:7
