@@ -114,7 +114,7 @@ translate french start_535f7da9:
 translate french start_2a0c1cb1:
 
     # e "Roses are red\n Violet are blue\n Regexs are hard\n Except for you?"
-    e "Les roses sont rouge\nLes violettes sont bleues\nLes regexs c'est dur\nSauf pour nous deux?"
+    e "Les roses sont rouges\nLes violettes sont bleues\nLes regexs c'est dur\nSauf pour nous deux?"
 
 # game/script.rpy:81
 translate french start_ec095fb6:
