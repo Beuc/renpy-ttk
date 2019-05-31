@@ -92,6 +92,8 @@ Except for you?
     voice "path/to/file"
     e "voiced text"
 
+    b "「unicode characters♪」"
+
     call dup
 
     return

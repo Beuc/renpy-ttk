@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-05-30 19:04+0200\n"
+"PO-Revision-Date: 2019-05-31 13:44+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_FR\n"
@@ -58,6 +58,10 @@ msgstr ""
 
 #: renpy/common/00accessibility.rpy:133
 msgid "Debug"
+msgstr ""
+
+#: renpy/common/00accessibility.rpy:144
+msgid "Return"
 msgstr ""
 
 #: renpy/common/00action_file.rpy:26
@@ -240,6 +244,18 @@ msgstr ""
 msgid "File page [text]"
 msgstr ""
 
+#: renpy/common/00action_file.rpy:631
+msgid "Page {}"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:631
+msgid "Automatic saves"
+msgstr ""
+
+#: renpy/common/00action_file.rpy:631
+msgid "Quick saves"
+msgstr ""
+
 #: renpy/common/00action_file.rpy:772
 msgid "Next file page."
 msgstr ""
@@ -262,6 +278,10 @@ msgstr ""
 
 #: renpy/common/00action_other.rpy:355
 msgid "Language [text]"
+msgstr ""
+
+#: renpy/common/00compat.rpy:264
+msgid "Fullscreen"
 msgstr ""
 
 #: renpy/common/00director.rpy:708
@@ -428,6 +448,18 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
+#: renpy/common/00gltest.rpy:101
+msgid "Disable"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:108
+msgid "Gamepad"
+msgstr ""
+
+#: renpy/common/00gltest.rpy:122
+msgid "Calibrate"
+msgstr ""
+
 #: renpy/common/00gltest.rpy:131
 msgid "Powersave"
 msgstr ""
@@ -454,6 +486,10 @@ msgstr ""
 
 #: renpy/common/00gltest.rpy:179
 msgid "Changes will take effect the next time this program is run."
+msgstr ""
+
+#: renpy/common/00gltest.rpy:186
+msgid "Quit"
 msgstr ""
 
 #: renpy/common/00gltest.rpy:213
@@ -1008,355 +1044,6 @@ msgctxt "dup_c1842022"
 msgid "Eileen"
 msgstr "Hélène dialogue dup"
 
-#: game/options.rpy:15
-msgid "test"
-msgstr ""
-
-#: game/screens.rpy:256
-msgid "Back"
-msgstr ""
-
-#: game/screens.rpy:257
-msgid "History"
-msgstr ""
-
-#: game/screens.rpy:258
-msgid "Skip"
-msgstr ""
-
-#: game/screens.rpy:259
-msgid "Auto"
-msgstr ""
-
-#: game/screens.rpy:260
-msgid "Save"
-msgstr ""
-
-#: game/screens.rpy:261
-msgid "Q.Save"
-msgstr ""
-
-#: game/screens.rpy:262
-msgid "Q.Load"
-msgstr ""
-
-#: game/screens.rpy:263
-msgid "Prefs"
-msgstr ""
-
-#: game/screens.rpy:304
-msgid "Start"
-msgstr ""
-
-#: game/screens.rpy:312
-msgid "Load"
-msgstr ""
-
-#: game/screens.rpy:314
-msgid "Preferences"
-msgstr ""
-
-#: game/screens.rpy:318
-msgid "End Replay"
-msgstr ""
-
-#: game/screens.rpy:322
-msgid "Main Menu"
-msgstr ""
-
-#: game/screens.rpy:324
-msgid "About"
-msgstr ""
-
-#: game/screens.rpy:329
-msgid "Help"
-msgstr ""
-
-#: game/screens.rpy:332
-msgid "Quit"
-msgstr ""
-
-#: game/screens.rpy:473
-msgid "Return"
-msgstr ""
-
-#: game/screens.rpy:557
-msgid "Version [config.version!t]\n"
-msgstr ""
-
-#: game/screens.rpy:563
-msgid ""
-"Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n"
-"\n"
-"[renpy.license!t]"
-msgstr ""
-
-#: game/screens.rpy:603
-msgid "Page {}"
-msgstr ""
-
-#: game/screens.rpy:603
-msgid "Automatic saves"
-msgstr ""
-
-#: game/screens.rpy:603
-msgid "Quick saves"
-msgstr ""
-
-#: game/screens.rpy:645
-msgid "{#file_time}%A, %B %d %Y, %H:%M"
-msgstr ""
-
-#: game/screens.rpy:645
-msgid "empty slot"
-msgstr ""
-
-#: game/screens.rpy:662
-msgid "<"
-msgstr ""
-
-#: game/screens.rpy:665
-msgid "{#auto_page}A"
-msgstr ""
-
-#: game/screens.rpy:668
-msgid "{#quick_page}Q"
-msgstr ""
-
-#: game/screens.rpy:674
-msgid ">"
-msgstr ""
-
-#: game/screens.rpy:731
-msgid "Display"
-msgstr ""
-
-#: game/screens.rpy:732
-msgid "Window"
-msgstr ""
-
-#: game/screens.rpy:733
-msgid "Fullscreen"
-msgstr ""
-
-#: game/screens.rpy:737
-msgid "Rollback Side"
-msgstr ""
-
-#: game/screens.rpy:738
-msgid "Disable"
-msgstr ""
-
-#: game/screens.rpy:739
-msgid "Left"
-msgstr ""
-
-#: game/screens.rpy:740
-msgid "Right"
-msgstr ""
-
-#: game/screens.rpy:745
-msgid "Unseen Text"
-msgstr ""
-
-#: game/screens.rpy:746
-msgid "After Choices"
-msgstr ""
-
-#: game/screens.rpy:747
-msgid "Transitions"
-msgstr ""
-
-#: game/screens.rpy:760
-msgid "Text Speed"
-msgstr ""
-
-#: game/screens.rpy:764
-msgid "Auto-Forward Time"
-msgstr ""
-
-#: game/screens.rpy:771
-msgid "Music Volume"
-msgstr ""
-
-#: game/screens.rpy:778
-msgid "Sound Volume"
-msgstr ""
-
-#: game/screens.rpy:784
-msgid "Test"
-msgstr ""
-
-#: game/screens.rpy:788
-msgid "Voice Volume"
-msgstr ""
-
-#: game/screens.rpy:799
-msgid "Mute All"
-msgstr ""
-
-#: game/screens.rpy:918
-msgid "The dialogue history is empty."
-msgstr ""
-
-#: game/screens.rpy:988
-msgid "Keyboard"
-msgstr ""
-
-#: game/screens.rpy:989
-msgid "Mouse"
-msgstr ""
-
-#: game/screens.rpy:992
-msgid "Gamepad"
-msgstr ""
-
-#: game/screens.rpy:1005
-msgid "Enter"
-msgstr ""
-
-#: game/screens.rpy:1006
-msgid "Advances dialogue and activates the interface."
-msgstr ""
-
-#: game/screens.rpy:1009
-msgid "Space"
-msgstr ""
-
-#: game/screens.rpy:1010
-msgid "Advances dialogue without selecting choices."
-msgstr ""
-
-#: game/screens.rpy:1013
-msgid "Arrow Keys"
-msgstr ""
-
-#: game/screens.rpy:1014
-msgid "Navigate the interface."
-msgstr ""
-
-#: game/screens.rpy:1017
-msgid "Escape"
-msgstr ""
-
-#: game/screens.rpy:1018
-msgid "Accesses the game menu."
-msgstr ""
-
-#: game/screens.rpy:1021
-msgid "Ctrl"
-msgstr ""
-
-#: game/screens.rpy:1022
-msgid "Skips dialogue while held down."
-msgstr ""
-
-#: game/screens.rpy:1025
-msgid "Tab"
-msgstr ""
-
-#: game/screens.rpy:1026
-msgid "Toggles dialogue skipping."
-msgstr ""
-
-#: game/screens.rpy:1029
-msgid "Page Up"
-msgstr ""
-
-#: game/screens.rpy:1030
-msgid "Rolls back to earlier dialogue."
-msgstr ""
-
-#: game/screens.rpy:1033
-msgid "Page Down"
-msgstr ""
-
-#: game/screens.rpy:1034
-msgid "Rolls forward to later dialogue."
-msgstr ""
-
-#: game/screens.rpy:1038
-msgid "Hides the user interface."
-msgstr ""
-
-#: game/screens.rpy:1042
-msgid "Takes a screenshot."
-msgstr ""
-
-#: game/screens.rpy:1046
-msgid "Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}."
-msgstr ""
-
-#: game/screens.rpy:1052
-msgid "Left Click"
-msgstr ""
-
-#: game/screens.rpy:1056
-msgid "Middle Click"
-msgstr ""
-
-#: game/screens.rpy:1060
-msgid "Right Click"
-msgstr ""
-
-#: game/screens.rpy:1064
-msgid ""
-"Mouse Wheel Up\n"
-"Click Rollback Side"
-msgstr ""
-
-#: game/screens.rpy:1068
-msgid "Mouse Wheel Down"
-msgstr ""
-
-#: game/screens.rpy:1075
-msgid ""
-"Right Trigger\n"
-"A/Bottom Button"
-msgstr ""
-
-#: game/screens.rpy:1079
-msgid ""
-"Left Trigger\n"
-"Left Shoulder"
-msgstr ""
-
-#: game/screens.rpy:1083
-msgid "Right Shoulder"
-msgstr ""
-
-#: game/screens.rpy:1088
-msgid "D-Pad, Sticks"
-msgstr ""
-
-#: game/screens.rpy:1092
-msgid "Start, Guide"
-msgstr ""
-
-#: game/screens.rpy:1096
-msgid "Y/Top Button"
-msgstr ""
-
-#: game/screens.rpy:1099
-msgid "Calibrate"
-msgstr ""
-
-#: game/screens.rpy:1164
-msgid "Yes"
-msgstr ""
-
-#: game/screens.rpy:1165
-msgid "No"
-msgstr ""
-
-#: game/screens.rpy:1211
-msgid "Skipping"
-msgstr ""
-
-#: game/screens.rpy:1434
-msgid "Menu"
-msgstr ""
-
 #: game/script.rpy:7
 msgctxt "game/script.rpy:7"
 msgid "Eileen"
@@ -1505,3 +1192,10 @@ msgstr "dupmenuentrée"
 #: game/script.rpy:92
 msgid "voiced text"
 msgstr "texte vocalisé"
+
+#: game/script.rpy:95
+msgid "「unicode characters♪」"
+msgstr "「caractères unicode♪」"
+
+#~ msgid "「But if you ever change your mind, feel free to ask me♪」"
+#~ msgstr "「Mais jamais tu changes d'avis, n'hésite pas à me demander♪」"

@@ -136,6 +136,12 @@ translate french start_06194c6b:
     voice "path/to/file"
     e "texte vocalisé"
 
+# game/script.rpy:95
+translate french start_7e46d471:
+
+    # b "「unicode characters♪」"
+    b "「caractères unicode♪」"
+
 translate french strings:
 
     # game/script.rpy:7

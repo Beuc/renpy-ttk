@@ -24,11 +24,10 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from __future__ import print_function
-import sys, os, fnmatch, operator
+import sys, os, fnmatch, operator, io
 import re
 import shutil
-import rttk.run, rttk.tlparser
-
+import rttk.run, rttk.tlparser, rttk.utf_8_sig
 
 def tl2pot(projectpath, outfile='game.pot'):
     # Refresh strings
@@ -46,11 +45,8 @@ def tl2pot(projectpath, outfile='game.pot'):
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
         for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
             print("Parsing  " + os.path.join(curdir,filename))
-            f = open(os.path.join(curdir,filename), 'r')
+            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
-            if lines[0].startswith('\xef\xbb\xbf'):
-                lines[0] = lines[0][3:]  # BOM
-
             lines.reverse()
             cur_strings = []
             while len(lines) > 0:
@@ -62,8 +58,8 @@ def tl2pot(projectpath, outfile='game.pot'):
     for s in strings:
         occurrences[s['text']] = occurrences.get(s['text'], 0) + 1
 
-    out = open(outfile, 'w')
-    out.write(r"""msgid ""
+    out = io.open(outfile, 'w', encoding='utf-8')
+    out.write(ur"""msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,12 +67,12 @@ msgstr ""
 
 """)
     for s in strings:
-        out.write('#: ' + s['source'] + '\n')
+        out.write(u'#: ' + s['source'] + u'\n')
         if occurrences[s['text']] > 1:
-            out.write('msgctxt "' + (s['id'] or s['source']) + '"\n')
-        out.write('msgid "' + s['text'] + '"\n')
-        out.write('msgstr ""\n')
-        out.write('\n')
+            out.write(u'msgctxt "' + (s['id'] or s['source']) + u'"\n')
+        out.write(u'msgid "' + s['text'] + u'"\n')
+        out.write(u'msgstr ""\n')
+        out.write(u'\n')
     print("Wrote '" + outfile + "'.")
 
     try:

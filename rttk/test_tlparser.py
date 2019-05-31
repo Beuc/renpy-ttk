@@ -29,48 +29,48 @@ import tlparser
 class TestTlparser(unittest.TestCase):
 
     def test_is_empty(self):
-        self.assertTrue(tlparser.is_empty(''))
-        self.assertTrue(tlparser.is_empty('\n'))
-        self.assertFalse(tlparser.is_empty('translate french start_a170b500\n'))
-        self.assertFalse(tlparser.is_empty('# game/script.rpy:27'))
+        self.assertTrue(tlparser.is_empty(u''))
+        self.assertTrue(tlparser.is_empty(u'\n'))
+        self.assertFalse(tlparser.is_empty(u'translate french start_a170b500\n'))
+        self.assertFalse(tlparser.is_empty(u'# game/script.rpy:27'))
 
     def test_is_comment(self):
-        self.assertTrue(tlparser.is_comment('#'))
-        self.assertTrue(tlparser.is_comment('# game/script.rpy:27\n'))
-        self.assertFalse(tlparser.is_comment(' '))
-        self.assertFalse(tlparser.is_comment('e "Hello"'))
-        self.assertFalse(tlparser.is_comment('translate french start_a170b500  # test\n'))
+        self.assertTrue(tlparser.is_comment(u'#'))
+        self.assertTrue(tlparser.is_comment(u'# game/script.rpy:27\n'))
+        self.assertFalse(tlparser.is_comment(u' '))
+        self.assertFalse(tlparser.is_comment(u'e "Hello"'))
+        self.assertFalse(tlparser.is_comment(u'translate french start_a170b500  # test\n'))
 
     def test_is_block_start(self):
-        self.assertTrue(tlparser.is_block_start('translate french start_a170b500  # test\n'))
+        self.assertTrue(tlparser.is_block_start(u'translate french start_a170b500  # test\n'))
     def test_extract_source(self):
-        self.assertEqual(tlparser.extract_source('# game/script.rpy:27\n'), 'game/script.rpy:27')
+        self.assertEqual(tlparser.extract_source(u'# game/script.rpy:27\n'), u'game/script.rpy:27')
 
     def test_extract_dqstrings(self):
-        testcase = r'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
+        testcase = ur'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
         self.assertEqual(tlparser.extract_dqstrings(testcase),
-            [{'start': 31, 'end': 74, 'text': r'''Tricky single/double '\" multiple strings 2'''}])
-        testcase = r'''_( "string \" character" ) "Tricky double/double \"' multiple strings"'''
+            [{'start': 31, 'end': 74, 'text': ur'''Tricky single/double '\" multiple strings 2'''}])
+        testcase = ur'''_( "string \" character" ) "Tricky double/double \"' multiple strings"'''
         self.assertEqual(tlparser.extract_dqstrings(testcase),
-            [{'start':  4, 'end': 23, 'text': r'''string \" character'''},
-             {'start': 28, 'end': 69, 'text': r'''Tricky double/double \"' multiple strings'''}])
+            [{'start':  4, 'end': 23, 'text': ur'''string \" character'''},
+             {'start': 28, 'end': 69, 'text': ur'''Tricky double/double \"' multiple strings'''}])
 
     def test_extract_base_string(self):
         self.assertEqual(
-            tlparser.extract_base_string('''    old "menu title"\n'''),
-            {'start': 9, 'end': 19, 'text': 'menu title'})
+            tlparser.extract_base_string(u'''    old "menu title"\n'''),
+            {'start': 9, 'end': 19, 'text': u'menu title'})
 
     def test_extract_dialog_string(self):
         self.assertEqual(
-            tlparser.extract_dialog_string('''e "You've created a new Ren'Py game."\n'''),
-            {'start': 3, 'end': 36, 'text': "You've created a new Ren'Py game."})
-        testcase = r'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
+            tlparser.extract_dialog_string(u'''e "You've created a new Ren'Py game."\n'''),
+            {'start': 3, 'end': 36, 'text': u"You've created a new Ren'Py game."})
+        testcase = ur'''    _( 'string " character' ) "Tricky single/double '\" multiple strings 2"'''
         self.assertEqual(tlparser.extract_dialog_string(testcase),
-            {'start': 31, 'end': 74, 'text': r'''Tricky single/double '\" multiple strings 2'''})
+            {'start': 31, 'end': 74, 'text': ur'''Tricky single/double '\" multiple strings 2'''})
 
     def test_parse_next_block(self):
         # https://www.renpy.org/doc/html/translation.html
-        lines = """
+        lines = u"""
 # TODO: Translation updated at 2019-05-18 19:13
 
 # game/script.rpy:27
@@ -83,13 +83,13 @@ translate pot start_a170b500:
         lines.reverse()
 
         self.assertEqual(tlparser.parse_next_block(lines), [{
-            'id': 'start_a170b500',
-            'source': 'game/script.rpy:27',
-            'text': r"You've created a new Ren'Py game.",
+            'id': u'start_a170b500',
+            'source': u'game/script.rpy:27',
+            'text': ur"You've created a new Ren'Py game.",
             'translation': None
         }])
 
-        lines = """
+        lines = u"""
 # game/script.rpy:64
 translate pot start_130610c2:
 
@@ -102,13 +102,13 @@ translate pot start_130610c2:
         lines.reverse()
 
         self.assertEqual(tlparser.parse_next_block(lines), [{
-            'id': 'start_130610c2',
-            'source': 'game/script.rpy:64',
-            'text': r"You use 'nvl clear' to clear the screen when that becomes necessary.",
+            'id': u'start_130610c2',
+            'source': u'game/script.rpy:64',
+            'text': ur"You use 'nvl clear' to clear the screen when that becomes necessary.",
             'translation': None
         }])
 
-        lines = """
+        lines = u"""
 translate russian tutorial_nvlmode_76b2fe88:
 
     # nvl clear
@@ -118,7 +118,7 @@ translate russian tutorial_nvlmode_76b2fe88:
         lines.reverse()
         self.assertEqual(tlparser.parse_next_block(lines), [])
 
-        lines = """
+        lines = u"""
 translate piglatin style default:
 # comment but not the end of the bloc
     font "stonecutter.ttf"
@@ -127,7 +127,7 @@ translate piglatin style default:
         lines.reverse()
         self.assertEqual(tlparser.parse_next_block(lines), [])
 
-        lines = """
+        lines = u"""
 translate piglatin python:
 
     style.default.font = "stonecutter.ttf"
@@ -136,7 +136,7 @@ translate piglatin python:
         lines.reverse()
         self.assertEqual(tlparser.parse_next_block(lines), [])
 
-        lines = """
+        lines = u"""
 translate pot strings:
 
     # script.rpy:14
@@ -150,11 +150,11 @@ translate pot strings:
         lines = [l+"\n" for l in lines.split("\n")]
         lines.reverse()
         self.assertEqual(tlparser.parse_next_block(lines), [
-            {'id':None, 'source':'script.rpy:14', 'text':"Eileen", 'translation':"translation1"},
-            {'id':None, 'source':'script.rpy:40', 'text':"string ' character", 'translation':"translation2"}
+            {'id':None, 'source':u'script.rpy:14', 'text':u"Eileen", 'translation':u"translation1"},
+            {'id':None, 'source':u'script.rpy:40', 'text':u"string ' character", 'translation':u"translation2"}
         ])
 
-        lines = """\
+        lines = u"""\
 # game/script.rpy:27
 translate pot start_a170b500:
 
@@ -171,19 +171,19 @@ translate pot start_a1247ef6:
         lines.reverse()
 
         self.assertEqual(tlparser.parse_next_block(lines), [{
-            'id': 'start_a170b500',
-            'source': 'game/script.rpy:27',
-            'text': r"You've created a new Ren'Py game.",
+            'id': u'start_a170b500',
+            'source': u'game/script.rpy:27',
+            'text': ur"You've created a new Ren'Py game.",
             'translation': None
         }])
         self.assertEqual(tlparser.parse_next_block(lines), [{
-            'id': 'start_a1247ef6',
-            'source': 'game/script.rpy:29',
-            'text': r"Once you add a story, pictures, and music, you can release it to the world!",
+            'id': u'start_a1247ef6',
+            'source': u'game/script.rpy:29',
+            'text': ur"Once you add a story, pictures, and music, you can release it to the world!",
             'translation': None
         }])
 
-        lines = """\
+        lines = u"""\
 # game/script.rpy:92
 translate french start_06194c6b:
 
@@ -196,9 +196,9 @@ translate french start_06194c6b:
         lines.reverse()
 
         self.assertEqual(tlparser.parse_next_block(lines), [{
-            'id': 'start_06194c6b',
-            'source': 'game/script.rpy:92',
-            'text': r"voiced text",
+            'id': u'start_06194c6b',
+            'source': u'game/script.rpy:92',
+            'text': ur"voiced text",
             'translation': None
         }])
 

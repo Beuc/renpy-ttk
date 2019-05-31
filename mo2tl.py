@@ -24,19 +24,33 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from __future__ import print_function
-import sys, os, fnmatch
+import sys, os, fnmatch, io
 import re
 import subprocess, shutil
 import tempfile
-import rttk.run, rttk.tlparser
+import rttk.run, rttk.tlparser, rttk.utf_8_sig
 import gettext
 
 # Doc: manual .mo test:
 # mkdir -p $LANG/LC_MESSAGES/
 # msgfmt xxx.po -o $LANG/LC_MESSAGES/game.mo
-# TEXTDOMAINDIR=. gettext -s -d game "Start"
+# TEXTDOMAINDIR=. gettext -s -d game "nointeract"
 # TEXTDOMAINDIR=. gettext -s -d game "script_abcd1234"$'\x4'"You've created a new Ren'Py game."
 
+UNESCAPE_CHARS = {
+    'a':  '\a',
+    'b':  '\b',
+    'e':  '\e',
+    'f':  '\f',
+    'n':  '\n',
+    'r':  '\r',
+    't':  '\t',
+    'v':  '\v',
+    '\\': '\\',
+    '\'': '\'',
+    '"':  '\"',
+    '?':  '\?',
+}
 ESCAPE_CHARS = {
     '\a': r'\a',
     '\b': r'\b',
@@ -51,13 +65,30 @@ ESCAPE_CHARS = {
     '\"': r'\"',
     '\?': r'\?',
 }
+def c_unescape(s):
+    r'''
+    Convert Python-style string for gettext look-up
+    Like str.decode('unicode_escape') but actually support unicode characters
+    No support for \xXX or \0xx.
+    '''
+    ret = ''
+    pos = 0
+    while pos < len(s):
+        if s[pos] == '\\' and (pos+1) < len(s) and s[pos+1] in UNESCAPE_CHARS.keys():
+            ret += UNESCAPE_CHARS[s[pos+1]]
+            pos += 1
+        else:
+            ret += s[pos]
+        pos += 1
+    return ret
 def c_escape(s):
     '''
-    Use to convert gettext result back to Python-style string
+    Convert gettext result back to Python-style string
     Like str.encode('string_escape') but keeping non-ASCII letters as-is
     (no \xc3\xa9 everywhere)
     '''
     return ''.join([ESCAPE_CHARS.get(c, c) for c in s])
+
 
 def mo2tl(projectpath, mofile, renpy_target_language):
     if not re.match('^[a-z_]+$', renpy_target_language):
@@ -78,11 +109,8 @@ def mo2tl(projectpath, mofile, renpy_target_language):
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
         for filename in fnmatch.filter(filenames, '*.rpy'):
             print("Parsing  " + os.path.join(curdir,filename))
-            f = open(os.path.join(curdir,filename), 'r')
+            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
-            if lines[0].startswith('\xef\xbb\xbf'):
-                lines[0] = lines[0][3:]  # BOM
-
             lines.reverse()
             while len(lines) > 0:
                 originals.extend(rttk.tlparser.parse_next_block(lines))
@@ -108,27 +136,29 @@ def mo2tl(projectpath, mofile, renpy_target_language):
     os.makedirs(msgdir)
     if mofile.endswith('.po'):
         pofile = mofile
+        print(".po ->", os.path.join(msgdir, 'game.mo'))
         ret = subprocess.call(['msgfmt', pofile, '-v', '-o', os.path.join(msgdir, 'game.mo')])
         if ret != 0:
             raise Exception("msgfmt failed")
     else:
         shutil.copy2(mofile, os.path.join(msgdir, 'game.mo'))
-    gettext.bindtextdomain('game', localedir)
-    gettext.dgettext('game', 'text')
+    translations = gettext.translation('game', localedir)
+    class NoneOnMissingTranslation:
+        @staticmethod
+        def ugettext(str):
+            return None
+    translations.add_fallback(NoneOnMissingTranslation)
 
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',renpy_target_language)):
         for filename in fnmatch.filter(filenames, '*.rpy'):
             print("Updating  " + os.path.join(curdir,filename))
             scriptpath = os.path.join(curdir,filename)
-            f_in = open(scriptpath, 'r')
+            f_in = io.open(scriptpath, 'r', encoding='utf-8-sig')
             lines = f_in.readlines()
-            if lines[0].startswith('\xef\xbb\xbf'):
-                lines[0] = lines[0][3:]  # BOM
             lines.reverse()  # reverse so we can pop/append efficiently
             f_in.close()
         
-            out = open(scriptpath, 'w')
-            out.write('\xef\xbb\xbf')  # BOM, just in case
+            out = io.open(scriptpath, 'w', encoding='utf-8-sig')
             while len(lines) > 0:
                 line = lines.pop()
                 if rttk.tlparser.is_empty(line):
@@ -155,14 +185,15 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 break
                             elif line.lstrip().startswith('old '):
                                 msgstr = rttk.tlparser.extract_base_string(line)['text']
-                                lookup = msgstr.decode('string_escape')
+                                lookup = c_unescape(msgstr)
                                 lookup = msgctxt+'\x04'+lookup
-                                translation = gettext.dgettext('game', lookup)
-                                if translation == lookup:
+                                translation = translations.ugettext(lookup)
+                                if translation is None:
                                         # no match with context, try without
-                                        lookup = msgstr.decode('string_escape')
-                                        translation = gettext.dgettext('game', lookup)
-                                translation = c_escape(translation)
+                                        lookup = c_unescape(msgstr)
+                                        translation = translations.ugettext(lookup)
+                                if translation is not None:
+                                    translation = c_escape(translation)
                                 msgctxt = ''
                             elif line.lstrip().startswith('new '):
                                 if translation is not None:
@@ -202,15 +233,16 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 else:
                                     msgstr = o_blocks_index[msgid]
                                     msgctxt = msgid
-                                    lookup = msgstr.decode('string_escape')
+                                    lookup = c_unescape(msgstr)
                                     lookup = msgctxt+'\x04'+lookup
-                                    translation = gettext.dgettext('game', lookup)
-                                    if translation == lookup:
+                                    translation = translations.ugettext(lookup)
+                                    if translation is None:
                                         # no match with context, try without
-                                        lookup = msgstr.decode('string_escape')
-                                        translation = gettext.dgettext('game', lookup)
-                                    translation = c_escape(translation)
-                                    line = line[:s['start']]+translation+line[s['end']:]
+                                        lookup = c_unescape(msgstr)
+                                        translation = translations.ugettext(lookup)
+                                    if translation is not None:
+                                        translation = c_escape(translation)
+                                        line = line[:s['start']]+translation+line[s['end']:]
                             out.write(line)
                 # Unknown
                 else:

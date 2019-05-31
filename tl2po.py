@@ -28,10 +28,10 @@
 # - import default Ren'Py translated strings from "The Question"
 
 from __future__ import print_function
-import sys, os, fnmatch, operator
+import sys, os, fnmatch, operator, io
 import re
 import shutil
-import rttk.run, rttk.tlparser
+import rttk.run, rttk.tlparser, rttk.utf_8_sig
 
 
 def tl2po(projectpath, language, outfile=None):
@@ -57,11 +57,8 @@ def tl2po(projectpath, language, outfile=None):
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
         for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
             print("Parsing  " + os.path.join(curdir,filename))
-            f = open(os.path.join(curdir,filename), 'r')
+            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
-            if lines[0].startswith('\xef\xbb\xbf'):
-                lines[0] = lines[0][3:]  # BOM
-
             lines.reverse()
             while len(lines) > 0:
                 originals.extend(rttk.tlparser.parse_next_block(lines))
@@ -70,11 +67,8 @@ def tl2po(projectpath, language, outfile=None):
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',language)):
         for filename in fnmatch.filter(filenames, '*.rpy'):
             print("Parsing  " + os.path.join(curdir,filename))
-            f = open(os.path.join(curdir,filename), 'r')
+            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
-            if lines[0].startswith('\xef\xbb\xbf'):
-                lines[0] = lines[0][3:]  # BOM
-
             lines.reverse()
             while len(lines) > 0:
                 translated.extend(rttk.tlparser.parse_next_block(lines))
@@ -91,8 +85,8 @@ def tl2po(projectpath, language, outfile=None):
     for s in originals:
         occurrences[s['text']] = occurrences.get(s['text'], 0) + 1
 
-    out = open(outfile, 'w')
-    out.write(r"""msgid ""
+    out = io.open(outfile, 'w', encoding='utf-8')
+    out.write(ur"""msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,15 +94,15 @@ msgstr ""
 
 """)
     for s in originals:
-        out.write('#: ' + s['source'] + '\n')
+        out.write(u'#: ' + s['source'] + u'\n')
         if occurrences[s['text']] > 1:
-            out.write('msgctxt "' + (s['id'] or s['source']) + '"\n')
+            out.write(u'msgctxt "' + (s['id'] or s['source']) + u'"\n')
         out.write('msgid "' + s['text'] + '"\n')
         if s['id'] is not None and t_blocks_index.has_key(s['id']):
-            out.write('msgstr "' + t_blocks_index[s['id']] + '"\n')
+            out.write(u'msgstr "' + t_blocks_index[s['id']] + u'"\n')
         else:
-            out.write('msgstr "' + t_basestr_index.get(s['text'],'') + '"\n')
-        out.write('\n')
+            out.write(u'msgstr "' + t_basestr_index.get(s['text'],'') + u'"\n')
+        out.write(u'\n')
     print("Wrote '" + outfile + "'.")
 
     try:
