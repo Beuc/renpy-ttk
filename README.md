@@ -19,7 +19,7 @@ Work on your Ren'Py translation using the PO format. This brings support for ite
 
 - Fuzzy matching on update, so you can e.g. update a translation after a typo fix with a single click/keystroke.
 
-- Detect and comment out obsolete strings on update, so you don't waste time translating them.
+- Detect obsolete strings on update, so you don't waste time translating them.
 
 - Ren'Py forces you to either: display empty texts when there's no translation yet; or prefill all translations using the original language but this makes it hard to see untranslated strings. Now you can have both, as untranslated strings will be empty in your .po but filled with the original language in the Ren'Py translation files.
 
@@ -121,8 +121,9 @@ Don't remove the `.rpyc` files from the `tl/language` directories once
 you release a version of your game.  Otherwise your players will lose
 their seen texts on the next update, which is a frustrating gaming
 experience.  This is not specific to renpy-ttk but it's easier to
-forget about it.  You can remove `.rpy` files, but just leave `.rpyc`
-files around and let Ren'Py update ("recompile") them.
+forget about it.  Also if you keep the translation `.rpyc` files but
+remove the `.rpy` ones, Ren'Py will not regenerate them, so I suggest
+keeping those as well.
 
 
 ## Contact
