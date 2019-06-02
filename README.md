@@ -19,7 +19,7 @@ Work on your Ren'Py translation using the PO format. This brings support for ite
 
 - Fuzzy matching on update, so you can e.g. update a translation after a typo fix with a single click/keystroke.
 
-- Detect obsolete strings on update, so you don't waste time translating them.
+- Hide obsolete strings on update, so you don't waste time translating them.
 
 - Ren'Py forces you to either: display empty texts when there's no translation yet; or prefill all translations using the original language but this makes it hard to see untranslated strings. Now you can have both, as untranslated strings will be empty in your .po but filled with the original language in the Ren'Py translation files.
 
@@ -27,7 +27,7 @@ Handle duplicates, so you can translate the same dialog line differently dependi
 
 Up-to-date source references (file:line).
 
-Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, don't translate it in the PO file, or add a `# renpy-ttk:ignore` comment in the `translate` block before your translations.
+Support customized Ren'Py translations (WIP): for instance .po doesn't support splitting a translation to several Ren'Py dialogs, but if you did that in Ren'Py with a customized translation block, add a `# renpy-ttk:ignore` comment in the `translate` block before your translations.
 
 
 ## Install and run
