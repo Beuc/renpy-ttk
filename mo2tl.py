@@ -124,7 +124,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             o_basestr_index[s['text']] = s['translation']
 
     print("Calling Ren'Py translate to refresh " + renpy_target_language)
-    rttk.run.renpy([projectpath, 'translate', renpy_target_language])
+    rttk.run.renpy([projectpath, 'translate', renpy_target_language, '--compile'])
 
     # Setup gettext directory structure
     localedir = tempfile.mkdtemp()
