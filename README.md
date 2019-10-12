@@ -117,13 +117,15 @@ strings ordering (dialogues and choices get grouped separately).  You
 may apply [#1834](https://github.com/renpy/renpy/pull/1834) to fix
 this.
 
-Don't remove the `.rpyc` files from the `tl/language` directories once
-you release a version of your game.  Otherwise your players will lose
-their seen texts on the next update, which is a frustrating gaming
-experience.  This is not specific to renpy-ttk but it's easier to
-forget about it.  Also if you keep the translation `.rpyc` files but
-remove the `.rpy` ones, Ren'Py will not regenerate them, so I suggest
-keeping those as well.
+[Don't
+remove](https://patreon.renpy.org/rpyc.html#implications-for-save-compatibility)
+the `.rpyc` files from the `tl/language` directories once you release
+a version of your game.  Otherwise your players will lose their seen
+texts on the next update, which is a frustrating gaming experience.
+This is not specific to renpy-ttk but it's easy to forget about it.
+Also if you keep the `.rpyc` translation files but remove the `.rpy`
+ones, Ren'Py will not regenerate them, so I suggest keeping those as
+well.
 
 
 ## Contact
