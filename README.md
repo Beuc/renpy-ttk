@@ -123,9 +123,8 @@ the `.rpyc` files from the `tl/language` directories once you release
 a version of your game.  Otherwise your players will lose their seen
 texts on the next update, which is a frustrating gaming experience.
 This is not specific to renpy-ttk but it's easy to forget about it.
-Also if you keep the `.rpyc` translation files but remove the `.rpy`
-ones, Ren'Py will not regenerate them, so I suggest keeping those as
-well.
+The same will eventually happen if you keep the `.rpyc` translation
+files but remove the `.rpy` ones, so I suggest keeping those as well.
 
 
 ## Contact
