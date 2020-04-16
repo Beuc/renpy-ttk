@@ -85,6 +85,7 @@ translate french start_cb471577:
     e "chaîne de caractères entre guillemets simples dup2"
 
 # game/script.rpy:56
+# OBSOLETE
 translate french start_76b2fe88:
 
     # nvl clear
@@ -171,4 +172,18 @@ translate french strings:
     # game/script.rpy:85
     old "dupmenuentry"
     new "dupmenuentrée"
+
+# game/script.rpy:1
+# OBSOLETE
+translate french start_baaaaaad:
+
+    # e "obsolete entry"
+    e "entrée obsolète"
+
+# game/script.rpy:2
+# OBSOLETE
+translate french start_badddddd:
+
+    # e "obsolete entry 2"
+    e "entrée obsolète 2"
 

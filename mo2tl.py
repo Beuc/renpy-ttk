@@ -159,11 +159,13 @@ def mo2tl(projectpath, mofile, renpy_target_language):
             f_in.close()
         
             out = io.open(scriptpath, 'w', encoding='utf-8-sig')
+            last_comment = ''
             while len(lines) > 0:
                 line = lines.pop()
                 if rttk.tlparser.is_empty(line):
                     out.write(line)
                 elif rttk.tlparser.is_comment(line):
+                    last_comment = line
                     out.write(line)
                 elif rttk.tlparser.is_block_start(line):
                     msgid = line.strip(':\n').split()[2]
@@ -206,6 +208,10 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                             out.write(line)
                     else:
                         # dialog block
+                        if o_blocks_index.get(msgid, None) is None:
+                            obsolete = u"# OBSOLETE\n"
+                            if last_comment != obsolete:
+                                out.write(obsolete)
                         out.write(line)
                         while len(lines) > 0:
                             line = lines.pop()
