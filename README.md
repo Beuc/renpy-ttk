@@ -48,7 +48,7 @@ single click.
 
 Add `renpy.sh` to your `PATH`:
 
-`PATH=~/.../renpy-7.2.2-sdk:$PATH ./tl2pot.py ~/.../mygame/`
+`PATH=~/.../renpy-7.3.5-sdk:$PATH ./tl2pot.py ~/.../mygame/`
 
 
 ## Workflow with your PO editor
