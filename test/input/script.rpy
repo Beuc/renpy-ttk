@@ -94,6 +94,8 @@ Except for you?
 
     b "「unicode characters♪」"
 
+    e "say parameters with string" (show_param="é")
+
     call dup
 
     return

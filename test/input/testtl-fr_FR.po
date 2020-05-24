@@ -1196,3 +1196,7 @@ msgstr "texte vocalisé"
 #: game/script.rpy:95
 msgid "「unicode characters♪」"
 msgstr "「caractères unicode♪」"
+
+#: game/script.rpy:97
+msgid "say parameters with string"
+msgstr "say avec paramètre chaîne de charactère"

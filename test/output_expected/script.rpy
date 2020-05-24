@@ -143,6 +143,12 @@ translate french start_7e46d471:
     # b "「unicode characters♪」"
     b "「caractères unicode♪」"
 
+# game/script.rpy:97
+translate french start_d0996e27:
+
+    # e "say parameters with string" (show_param="é")
+    e "say avec paramètre chaîne de charactère" (show_param="é")
+
 translate french strings:
 
     # game/script.rpy:7
