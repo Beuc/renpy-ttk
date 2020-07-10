@@ -46,7 +46,7 @@ if __name__ == "__main__":
     root = Tk()
     root.withdraw()
 
-    result = askopenfilename(initialdir=sys.argv[1], parent=root, title="Select message catalog", filetypes=(("Message catalog","*.po *.mo"),("all files","*.*")))
+    result = askopenfilename(initialdir=sys.argv[1], parent=root, title="Select message catalog", filetypes=(("message catalog","*.po *.mo"),("all files","*.*")))
 
     if result == ():
         result = ""
