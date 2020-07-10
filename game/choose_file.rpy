@@ -37,7 +37,7 @@ init python:
 
         if EasyDialogs:
 
-            choice = EasyDialogs.AskFileForOpen(defaultLocation=default_path, wanted=unicode, typeList=[('Translation Catalogs (*.po,*.mo)', '*.po;*.mo'), ('All Files (*.*)', '*.*')])
+            choice = EasyDialogs.AskFileForOpen(defaultLocation=default_path, wanted=unicode, typeList=[('Message Catalogs (*.po,*.mo)', '*.po;*.mo'), ('All Files (*.*)', '*.*')])
 
             if choice is not None:
                 path = choice
