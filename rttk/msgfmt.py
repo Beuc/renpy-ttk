@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# renpy-ttk: note: copied from python-2.7/Tools/i18n/msgfmt.py
-# renpy-ttk: note: + ctxt support from 637a33b99685fd5d1032670fbe29c7c8a8f0ff63
+# renpy-ttk: copied from python-2.7/Tools/i18n/msgfmt.py
+# renpy-ttk: + ctxt support from 637a33b99685fd5d1032670fbe29c7c8a8f0ff63
 # Written by Martin v. Löwis <loewis@informatik.hu-berlin.de>
 
 """Generate binary message catalog from textual translation description.
