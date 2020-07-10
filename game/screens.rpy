@@ -155,7 +155,7 @@ screen main_menu():
             null height 10
             textbutton "tl2pot: generate POT template for your game" action Jump("TL2POT")
             textbutton "tl2po: extract existing Ren'Py translations to PO catalog" action Jump("TL2PO")
-            textbutton "mo2tl: inject MO catalog into Ren'Py translations" action Jump("MO2TL")
+            textbutton "mo2tl: inject PO/MO catalog into Ren'Py translations" action Jump("MO2TL")
             #textbutton "Test" action Jump("ltest_error")
             null height 20
             if projectpath:

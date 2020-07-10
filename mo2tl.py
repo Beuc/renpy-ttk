@@ -28,7 +28,7 @@ import sys, os, fnmatch, io
 import re
 import subprocess, shutil
 import tempfile
-import rttk.run, rttk.tlparser, rttk.utf_8_sig
+import rttk.run, rttk.tlparser, rttk.utf_8_sig, rttk.msgfmt
 import gettext
 
 # Doc: manual .mo test:
@@ -134,14 +134,13 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                           os.environ['LANG'],
                           'LC_MESSAGES')
     os.makedirs(msgdir)
+    dest_mofile = os.path.join(msgdir, 'game.mo')
     if mofile.endswith('.po'):
         pofile = mofile
-        print(".po ->", os.path.join(msgdir, 'game.mo'))
-        ret = subprocess.call(['msgfmt', pofile, '-v', '-o', os.path.join(msgdir, 'game.mo')])
-        if ret != 0:
-            raise Exception("msgfmt failed")
+        print(".po ->", dest_mofile)
+        rttk.msgfmt.make(pofile, dest_mofile)
     else:
-        shutil.copy2(mofile, os.path.join(msgdir, 'game.mo'))
+        shutil.copy2(mofile, dest_mofile)
     translations = gettext.translation('game', localedir)
     class NoneOnMissingTranslation:
         @staticmethod
