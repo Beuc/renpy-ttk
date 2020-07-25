@@ -124,7 +124,12 @@ translate russian tutorial_nvlmode_76b2fe88:
 """
         lines = [l+"\n" for l in lines.split("\n")]
         lines.reverse()
-        self.assertEqual(tlparser.parse_next_block(lines), [])
+        self.assertEqual(tlparser.parse_next_block(lines), [{
+            'id': u'tutorial_nvlmode_76b2fe88',
+            'source': None,
+            'text': None,
+            'translation': None
+        }])
 
         lines = u"""
 translate piglatin style default:

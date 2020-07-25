@@ -85,7 +85,6 @@ translate french start_cb471577:
     e "chaîne de caractères entre guillemets simples dup2"
 
 # game/script.rpy:56
-# OBSOLETE
 translate french start_76b2fe88:
 
     # nvl clear

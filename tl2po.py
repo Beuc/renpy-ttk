@@ -61,7 +61,10 @@ def tl2po(projectpath, language, outfile=None):
             lines = f.readlines()
             lines.reverse()
             while len(lines) > 0:
-                originals.extend(rttk.tlparser.parse_next_block(lines))
+                parsed = rttk.tlparser.parse_next_block(lines)
+                for s in parsed:
+                    if s['text'] is not None:
+                        originals.append(s)
 
     translated = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',language)):

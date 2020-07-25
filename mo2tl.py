@@ -207,7 +207,7 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                             out.write(line)
                     else:
                         # dialog block
-                        if o_blocks_index.get(msgid, None) is None:
+                        if not o_blocks_index.has_key(msgid):
                             obsolete = u"# OBSOLETE\n"
                             if last_comment != obsolete:
                                 out.write(obsolete)
@@ -227,7 +227,10 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 # statement
                                 s = rttk.tlparser.extract_dialog_string(line)
                                 if s is None:
-                                    # no double-quoted string, not a dialog line (e.g. nvl)
+                                    # no ID (e.g. python block)
+                                    pass
+                                elif s['text'] is None:
+                                    # no double-quoted string (e.g. nvl)
                                     pass
                                 elif re.match('^\s*voice\s', line):
                                     # voice tag, not a dialog line

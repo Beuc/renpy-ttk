@@ -50,7 +50,10 @@ def tl2pot(projectpath, outfile='game.pot'):
             lines.reverse()
             cur_strings = []
             while len(lines) > 0:
-                cur_strings.extend(rttk.tlparser.parse_next_block(lines))
+                parsed = rttk.tlparser.parse_next_block(lines)
+                for s in parsed:
+                    if s['text'] is not None:
+                        cur_strings.append(s)
             cur_strings.sort(key=lambda s: (s['source'].split(':')[0], int(s['source'].split(':')[1])))
             strings.extend(cur_strings)
     
