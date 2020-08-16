@@ -56,25 +56,39 @@ def tl2po(projectpath, language, outfile=None):
     originals = []
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
         for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
-            print("Parsing  " + os.path.join(curdir,filename))
-            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
-            lines = f.readlines()
-            lines.reverse()
-            while len(lines) > 0:
-                parsed = rttk.tlparser.parse_next_block(lines)
-                for s in parsed:
-                    if s['text'] is not None:
-                        originals.append(s)
+            full_path = os.path.join(curdir,filename)
+            nb_lines = 0
+            try:
+                print("Parsing  " + os.path.join(curdir,filename))
+                f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
+                lines = f.readlines()
+                nb_lines = len(lines)
+                lines.reverse()
+                while len(lines) > 0:
+                    parsed = rttk.tlparser.parse_next_block(lines)
+                    for s in parsed:
+                        if s['text'] is not None:
+                            originals.append(s)
+            except Exception, e:
+                raise Exception("Error parsing %s at line %d: %s" % (
+                    full_path, nb_lines - len(lines), e))
 
     translated = []
     for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl',language)):
         for filename in fnmatch.filter(filenames, '*.rpy'):
-            print("Parsing  " + os.path.join(curdir,filename))
-            f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
-            lines = f.readlines()
-            lines.reverse()
-            while len(lines) > 0:
-                translated.extend(rttk.tlparser.parse_next_block(lines))
+            full_path = os.path.join(curdir,filename)
+            nb_lines = 0
+            try:
+                print("Parsing  " + full_path)
+                f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
+                lines = f.readlines()
+                nb_lines = len(lines)
+                lines.reverse()
+                while len(lines) > 0:
+                    translated.extend(rttk.tlparser.parse_next_block(lines))
+            except Exception, e:
+                raise Exception("Error parsing %s at line %d: %s" % (
+                    full_path, nb_lines - len(lines), e))
 
     t_blocks_index = {}
     t_basestr_index = {}
