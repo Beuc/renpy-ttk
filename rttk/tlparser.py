@@ -75,7 +75,7 @@ def extract_dqstrings(line):
             start = pos
             pos = skip_to_delim(pos, delim)
             if pos >= len(line):
-                raise Exception("unterminated string: " + line[start:pos])
+                raise Exception("unterminated string: " + line[start:pos] + " in line: " + line)
             if delim == DQ:
                 ret.append({'start':start, 'end':pos, 'text': line[start:pos]})
         pos += 1
