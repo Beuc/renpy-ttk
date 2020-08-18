@@ -144,6 +144,21 @@ translate russian tutorial_nvlmode_76b2fe88:
         }])
 
         lines = u"""
+translate russian bypass_fab12c567:
+
+    # e "Hello."
+    pass
+"""
+        lines = [l+"\n" for l in lines.split("\n")]
+        lines.reverse()
+        self.assertEqual(tlparser.parse_next_block(lines), [{
+            'id': u'bypass_fab12c567',
+            'source': None,
+            'text': None,
+            'translation': None
+        }])
+
+        lines = u"""
 translate piglatin style default:
 # comment but not the end of the bloc
     font "stonecutter.ttf"
