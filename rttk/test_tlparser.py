@@ -62,6 +62,18 @@ class TestTlparser(unittest.TestCase):
         testcase = ur'''    _(("char")) "Hello" (show_params=("value1","value2"))'''
         self.assertEqual(tlparser.extract_dialog_string(testcase),
             {'start': 17, 'end': 22, 'text': u'''Hello'''})
+        testcase = ur'''    e "Hello"  #"Ciao"'''
+        self.assertEqual(tlparser.extract_dqstrings(testcase),
+            [{'start': 7, 'end': 12, 'text': ur'''Hello'''}])
+        testcase = ur'''    e "Hello"  #"Ciao'''
+        self.assertEqual(tlparser.extract_dqstrings(testcase),
+            [{'start': 7, 'end': 12, 'text': ur'''Hello'''}])
+        testcase = ur'''    e "He#llo"  #"Ciao"'''
+        self.assertEqual(tlparser.extract_dqstrings(testcase),
+            [{'start': 7, 'end': 13, 'text': ur'''He#llo'''}])
+        testcase = ur'''    _("#") "Hello"  #"Ciao"'''
+        self.assertEqual(tlparser.extract_dqstrings(testcase),
+            [{'start': 12, 'end': 17, 'text': ur'''Hello'''}])
 
     def test_extract_base_string(self):
         self.assertEqual(

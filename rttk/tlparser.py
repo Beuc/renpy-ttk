@@ -78,6 +78,8 @@ def extract_dqstrings(line):
                 raise Exception("unterminated string: " + line[start:pos] + " in line: " + line)
             if delim == DQ:
                 ret.append({'start':start, 'end':pos, 'text': line[start:pos]})
+        elif line[pos] == '#':
+            break
         pos += 1
     return ret
 
