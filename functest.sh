@@ -34,6 +34,7 @@ sed -i -e 's/# TODO: Translation updated at .*/# TODO: Translation updated at XX
 
 diff -ru test/output_expected $projectpath/game/tl/french
 
+sed -i -e 's/^    "skipped translation"/    pass/' "$projectpath/game/tl/french/script.rpy"
 # TODO: check result but PO editors' reformatting makes it difficult
 renpy.sh . tl2po "$projectpath" french
 

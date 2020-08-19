@@ -148,6 +148,12 @@ translate french start_d0996e27:
     # e "say parameters with string" (show_param="é")
     e "say avec paramètre chaîne de charactère" (show_param="é")
 
+# game/script.rpy:99
+translate french start_652fb693:
+
+    # "skipped translation"
+    "skipped translation"
+
 translate french strings:
 
     # game/script.rpy:7

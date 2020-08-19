@@ -96,6 +96,8 @@ Except for you?
 
     e "say parameters with string" (show_param="é")
 
+    "skipped translation"
+
     call dup
 
     return

@@ -102,7 +102,7 @@ msgstr ""
             out.write(u'msgctxt "' + (s['id'] or s['source']) + u'"\n')
         out.write('msgid "' + s['text'] + '"\n')
         if s['id'] is not None and t_blocks_index.has_key(s['id']):
-            out.write(u'msgstr "' + t_blocks_index[s['id']] + u'"\n')
+            out.write(u'msgstr "' + (t_blocks_index[s['id']] or '') + u'"\n')
         else:
             out.write(u'msgstr "' + t_basestr_index.get(s['text'],'') + u'"\n')
         out.write(u'\n')
