@@ -5,10 +5,21 @@ Tools for translators working on Ren'Py games, in particular PO format import/ex
 <https://www.beuc.net/renpy-ttk/>  
 <https://renpy.beuc.net/download/renpy-ttk-latest.zip>  
 [fossil](https://www.fossil-scm.org/) `clone https://www.beuc.net/renpy-ttk/ ...`
+<https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318>  
 
 This is [free software](https://www.gnu.org/philosophy/free-sw.html):
 you are free to change and redistribute it under certain conditions;
 see LICENSE for details.
+
+
+## Contact
+
+For feedback and bug reports, you can reach me through
+[Lemma Soft Forums](https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318)
+or [e-mail](mailto:beuc@beuc.net).
+
+If this program was useful to you, please support me through
+[Patreon](https://www.beuc.net/donate/) :)
 
 
 ## Features / benefits
@@ -125,13 +136,3 @@ texts on the next update, which is a frustrating gaming experience.
 This is not specific to renpy-ttk but it's easy to forget about it.
 The same will eventually happen if you keep the `.rpyc` translation
 files but remove the `.rpy` ones, so I suggest keeping those as well.
-
-
-## Contact
-
-For feedback and bug reports, you can reach me through
-[Lemma Soft Forums](https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318)
-or [e-mail](mailto:beuc@beuc.net).
-
-If this program was useful to you, please support me through
-[Patreon](https://www.beuc.net/donate/) :)
