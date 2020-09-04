@@ -3,9 +3,10 @@
 Tools for translators working on Ren'Py games, in particular PO format import/export.
 
 <https://www.beuc.net/renpy-ttk/>  
-<https://renpy.beuc.net/download/renpy-ttk-latest.zip>  
-[fossil](https://www.fossil-scm.org/) `clone https://www.beuc.net/renpy-ttk/ ...`
 <https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318>  
+
+<https://renpy.beuc.net/download/renpy-ttk-latest.zip>  
+[fossil](https://www.fossil-scm.org/) `clone https://www.beuc.net/renpy-ttk/ ...`  
 
 This is [free software](https://www.gnu.org/philosophy/free-sw.html):
 you are free to change and redistribute it under certain conditions;
@@ -18,7 +19,7 @@ For feedback and bug reports, you can reach me through
 [Lemma Soft Forums](https://lemmasoft.renai.us/forums/viewtopic.php?f=32&t=55318)
 or [e-mail](mailto:beuc@beuc.net).
 
-If this program was useful to you, please support me through
+If this program was useful to you, please support my work through
 [Patreon](https://www.beuc.net/donate/) :)
 
 
