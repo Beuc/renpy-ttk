@@ -36,7 +36,7 @@ import rttk.run, rttk.tlparser, rttk.utf_8_sig
 
 def tl2po(projectpath, language, outfile=None):
     if not re.match('^[a-z_]+$', language):
-        raise Exception("Invalid language", language)
+        raise Exception("Invalid language name", language)
     if not os.path.isdir(os.path.join(projectpath,'game','tl',language)):
         raise Exception("Language not found", os.path.join(projectpath,'game','tl',language))
 
