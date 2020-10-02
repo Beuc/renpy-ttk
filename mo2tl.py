@@ -91,8 +91,8 @@ def c_escape(s):
 
 
 def mo2tl(projectpath, mofile, renpy_target_language):
-    if not re.match('^[a-z_]+$', renpy_target_language):
-        raise Exception("Invalid language", renpy_target_language)
+    if not re.match('^[a-z_]+$', renpy_target_language, re.IGNORECASE):
+        raise Exception("Invalid language name", renpy_target_language)
 
     # Refresh strings
     print("Calling Ren'Py translate to get untranslated strings")
