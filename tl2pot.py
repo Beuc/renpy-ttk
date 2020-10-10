@@ -2,7 +2,7 @@
 
 # Convert .rpy translation blocks and strings to .pot gettext template
 
-# Copyright (C) 2019  Sylvain Beucler
+# Copyright (C) 2019, 2020  Sylvain Beucler
 
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
