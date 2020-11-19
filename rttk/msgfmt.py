@@ -145,7 +145,7 @@ def make(filename, outfile):
             msgctxt = b''
         elif l.startswith('msgid') and not l.startswith('msgid_plural'):
             if section == STR:
-                add(msgid, msgstr, fuzzy)
+                add(msgctxt, msgid, msgstr, fuzzy)
             section = ID
             l = l[5:]
             msgid = msgstr = ''
