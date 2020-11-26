@@ -56,7 +56,7 @@ def tl2po(projectpath, language, outfile=None):
     originals = []
     for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
         for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
-            print("Parsing  " + os.path.join(curdir,filename))
+            print("Parsing " + os.path.join(curdir,filename))
             f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
             lines.reverse()
