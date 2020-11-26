@@ -100,4 +100,10 @@ Except for you?
 
     call dup
 
+    # Some games use empty strings, which would return PO information in gettext
+    #narrator ""  # more bugs if there's a single "" without duplicates
+    ""
+    $ empty = _("")  # ignored by the Ren'Py parser
+    " "
+
     return

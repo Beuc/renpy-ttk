@@ -2,7 +2,7 @@
 
 # Convert .mo compiled catalog to .rpy translation blocks and strings
 
-# Copyright (C) 2019  Sylvain Beucler
+# Copyright (C) 2019, 2020  Sylvain Beucler
 
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -89,6 +89,14 @@ def c_escape(s):
     '''
     return ''.join([ESCAPE_CHARS.get(c, c) for c in s])
 
+def ugettext_nometadata(translations, lookup):
+    '''
+    Wrapper around translations.ugettext() to avoid returning metadata
+    as the translation for the empty string
+    '''
+    if lookup == '':
+        return None
+    return translations.ugettext(lookup)
 
 def mo2tl(projectpath, mofile, renpy_target_language):
     if not re.match('^[a-z_]+$', renpy_target_language, re.IGNORECASE):
@@ -188,11 +196,11 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                 msgstr = rttk.tlparser.extract_base_string(line)['text']
                                 lookup = c_unescape(msgstr)
                                 lookup = msgctxt+'\x04'+lookup
-                                translation = translations.ugettext(lookup)
+                                translation = ugettext_nometadata(translations, lookup)
                                 if translation is None:
                                         # no match with context, try without
                                         lookup = c_unescape(msgstr)
-                                        translation = translations.ugettext(lookup)
+                                        translation = ugettext_nometadata(translations, lookup)
                                 if translation is not None:
                                     translation = c_escape(translation)
                                 msgctxt = ''
@@ -243,11 +251,11 @@ def mo2tl(projectpath, mofile, renpy_target_language):
                                     msgctxt = msgid
                                     lookup = c_unescape(msgstr)
                                     lookup = msgctxt+'\x04'+lookup
-                                    translation = translations.ugettext(lookup)
+                                    translation = ugettext_nometadata(translations, lookup)
                                     if translation is None:
                                         # no match with context, try without
                                         lookup = c_unescape(msgstr)
-                                        translation = translations.ugettext(lookup)
+                                        translation = ugettext_nometadata(translations, lookup)
                                     if translation is not None:
                                         translation = c_escape(translation)
                                         line = line[:s['start']]+translation+line[s['end']:]

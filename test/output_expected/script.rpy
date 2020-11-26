@@ -154,6 +154,18 @@ translate french start_652fb693:
     # "skipped translation"
     "skipped translation"
 
+# game/script.rpy:105
+translate french start_0ae9bcd0:
+
+    # ""
+    ""
+
+# game/script.rpy:107
+translate french start_9ea2f78c:
+
+    # " "
+    " "
+
 translate french strings:
 
     # game/script.rpy:7
