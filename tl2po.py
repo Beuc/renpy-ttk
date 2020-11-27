@@ -28,7 +28,7 @@
 # - import default Ren'Py translated strings from "The Question"
 
 from __future__ import print_function
-import sys, os, fnmatch, operator, io
+import sys, os, fnmatch, io
 import re
 import shutil
 import rttk.run, rttk.tlparser, rttk.utf_8_sig
@@ -54,8 +54,8 @@ def tl2po(projectpath, language, outfile=None):
     rttk.run.renpy([projectpath, 'translate', 'pot', '--compile'])
     
     originals = []
-    for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
-        for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
+    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
+        for filename in fnmatch.filter(filenames, '*.rpy'):
             print("Parsing " + os.path.join(curdir,filename))
             f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()

@@ -24,7 +24,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from __future__ import print_function
-import sys, os, fnmatch, operator, io
+import sys, os, fnmatch, io
 import re
 import shutil
 import rttk.run, rttk.tlparser, rttk.utf_8_sig
@@ -42,8 +42,8 @@ def tl2pot(projectpath, outfile='game.pot'):
     rttk.run.renpy([projectpath, 'translate', 'pot', '--compile'])
 
     strings = []
-    for curdir, subdirs, filenames in sorted(os.walk(os.path.join(projectpath,'game','tl','pot')), key=operator.itemgetter(0)):
-        for filename in sorted(fnmatch.filter(filenames, '*.rpy')):
+    for curdir, subdirs, filenames in os.walk(os.path.join(projectpath,'game','tl','pot')):
+        for filename in fnmatch.filter(filenames, '*.rpy'):
             print("Parsing " + os.path.join(curdir,filename))
             f = io.open(os.path.join(curdir,filename), 'r', encoding='utf-8-sig')
             lines = f.readlines()
@@ -58,8 +58,10 @@ def tl2pot(projectpath, outfile='game.pot'):
                         # '' is special in gettext, don't attempt to translate it
                         continue
                     cur_strings.append(s)
-            cur_strings.sort(key=lambda s: (s['source'].split(':')[0], int(s['source'].split(':')[1])))
             strings.extend(cur_strings)
+    # sort primarily by string location (not by .rpy filename) because
+    # Ren'Py inserts engine strings in game/tl/xxx/common.rpy
+    strings.sort(key=lambda s: (s['source'].split(':')[0], int(s['source'].split(':')[1])))
     
     occurrences = {}
     for s in strings:
